@@ -1,0 +1,26 @@
+# Ignore everything
+*
+
+# Allow wp-content
+!wp-content/
+!wp-content/**
+
+# Ignore uploads
+wp-content/uploads/
+
+# Ignore cache/config
+wp-content/cache/
+wp-content/w3tc-config/
+wp-content/config-*
+
+# Ignore maintenance
+wp-content/maintenance/
+
+# Ignore DB/backups
+*.sql
+*.zip
+*.rar
+*.log
+
+# Ignore config
+wp-config.php
