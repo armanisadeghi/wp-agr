@@ -1,0 +1,311 @@
+.featured-listings,
+.recent-listings {
+  padding-top: 31px;
+  background: #FFF;
+  padding-left: $global-gutter-width/2;
+  padding-right: $global-gutter-width/2;
+  h2,
+  h3,
+  h4,
+  .listing-title {
+    display: inline-block;
+    border-bottom: 2px solid #e6e6e6;
+    width: 100%;
+    margin: 0 0 26px;
+    padding-bottom: 10px;
+    font-family: $header-font-family;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #0e141e;
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.IDX-Listings {
+  list-style: none;
+  padding-left: 0;
+  margin-left: -13px;
+  margin-right: -13px;
+  @include mq($from: mobile-landscape) {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  color: #0e141e;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li {
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-bottom: 38px;
+    float: left;
+    @include mq($from: mobile-landscape) {
+      width: 50%;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: 38px;
+    }
+    @include mq($from: tablet) {
+      width: 33.333333%;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: 38px;
+    }
+    @include mq($from: desktop) {
+      width: 25%;
+      margin-bottom: 38px;
+    }
+  }
+
+  .IDX-item-inner {
+    border: 2px solid #e8e8e8;
+    padding: 19px 10px 9px;
+    display: block;
+    position: relative;
+  }
+
+  &.IDX-Recent-Listings .status {
+    right: 46px;
+  }
+  .status {
+    position: absolute;
+    top: -16px;
+    right: -2px;
+    border: 2px solid #e8e8e8;
+    background: #FFF;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-family: "Open Sans", sans-serif;
+    color: $primary-color;
+    text-transform: uppercase;
+    line-height: 1.4;
+    &:before {
+      content: "";
+      background: url("#{$img-path}arrow.png") no-repeat center;
+      width: 7px;
+      height: 15px;
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      left: -5px;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .IDX-Recent-Listings.status {
+    right: 46px;
+  }
+
+  .ribbon {
+    position: absolute;
+    top: -16px;
+    right: -2px;
+    border: 2px solid #0791a5;
+    background: #0791a5;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-family: "Open Sans", sans-serif;
+    z-index: 99;
+    color: #FFF;
+    line-height: 1.4;
+    &:before {
+      content: "";
+      background: url("#{$img-path}arrow-blue.png") no-repeat center;
+      width: 7px;
+      height: 15px;
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      left: -5px;
+      transform: translate(0, -50%);
+    }
+  }
+  .address {
+    color: #acadaf;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    line-height: 1.5;
+    margin-bottom: 7px;
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .price {
+    font-family: "HelveticaLTStd-Roman", sans-serif;
+    font-size: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 10px;
+  }
+
+  .img-wrapper {
+    position: relative;
+  }
+
+  .img-wrapper a:before {
+    content: "" !important;
+    position: absolute;
+    top: 52%;
+    left: 20%;
+    bottom: auto;
+    transform: translate(0, -50%);
+    display: inline-block;
+    background: url("#{$img-path}zoomplus.png") no-repeat left center;
+    width: 32px;
+    height: 32px;
+    z-index: 12;
+    opacity: 0;
+    transition: 0.3s;
+
+    @media screen and (max-width: 992px) {
+      left: 16%;
+    }
+  }
+
+  .img-wrapper a:after {
+    content: "View More Details";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    background: transparent;
+    width: 100%;
+    height: auto !important;
+    padding-left: 50px;
+    font-family: $header-font-family;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 300;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .img-wrapper {
+    &:hover {
+      a {
+        &:before,
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .img-wrapper:hover:after {
+    height: 100%;
+    transition: 0.3s;
+  }
+
+  .img-wrapper:after {
+    content: "";
+    background: rgba(#0791a5, 0.74);
+    width: 100%;
+    height: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    display: block;
+  }
+
+  .property-meta {
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .bedrooms {
+    color: #e4641e;
+  }
+
+  .bathrooms {
+    color: #25a6c6;
+  }
+
+  .bedrooms,
+  .bathrooms {
+    text-align: center;
+    padding: 8px 5px 10px;
+    font-family: "HelveticaLTStd-Light", sans-serif;
+    font-size: 40px;
+    width: 44px;
+    height: 77px;
+    margin-right: 7px;
+    margin-bottom: 8px;
+    @include mq($from: wide) {
+      width: 56px;
+    }
+  }
+
+  .sqft,
+  .acres {
+    padding: 5px 10px 9px;
+    font-family: "HelveticaLTStd-Light", sans-serif;
+    font-size: 20px;
+    width: 105px;
+    height: 34px;
+    margin-bottom: 8px;
+  }
+
+  .acres {
+    float: left;
+  }
+
+  label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: #acadae;
+    vertical-align: top;
+  }
+
+  .bedrooms,
+  .bathrooms {
+    label {
+      display: block;
+    }
+  }
+
+  .sqft,
+  .acres {
+    label {
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .value {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .property-meta > span {
+    border: 1px solid #e8e8e8;
+    float: left;
+  }
+
+  .favourite {
+    text-align: center;
+    padding: 5px 0;
+    display: block;
+    background: #e6e6e6;
+    color: #000;
+  }
+}

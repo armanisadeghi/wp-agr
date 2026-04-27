@@ -1,0 +1,447 @@
+[
+    {
+        "name": "cmb2/cmb2",
+        "version": "v2.6.0",
+        "version_normalized": "2.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/CMB2/CMB2.git",
+            "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/CMB2/CMB2/zipball/008d9b83263d971d6bd41c27e31113db852d5ef3",
+            "reference": "008d9b83263d971d6bd41c27e31113db852d5ef3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">5.2.4"
+        },
+        "require-dev": {
+            "apigen/apigen": "4.1.2",
+            "nette/utils": "2.5.3",
+            "phpunit/phpunit": "6.5.13"
+        },
+        "suggest": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2019-01-21T04:30:08+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "WebDevStudios",
+                "email": "contact@webdevstudios.com",
+                "homepage": "https://github.com/WebDevStudios",
+                "role": "Developer"
+            },
+            {
+                "name": "Justin Sternberg",
+                "email": "justin@dsgnwrks.pro",
+                "homepage": "https://dsgnwrks.pro",
+                "role": "Developer"
+            }
+        ],
+        "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
+        "homepage": "https://github.com/CMB2/CMB2",
+        "keywords": [
+            "metabox",
+            "plugin",
+            "wordpress"
+        ]
+    },
+    {
+        "name": "composer/installers",
+        "version": "v1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+            "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2018-08-27T06:10:37+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Composer\\Installers\\Plugin",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Composer\\Installers\\": "src/Composer/Installers"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "https://composer.github.io/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Eliasis",
+            "Hurad",
+            "ImageCMS",
+            "Kanboard",
+            "Lan Management System",
+            "MODX Evo",
+            "Mautic",
+            "Maya",
+            "OXID",
+            "Plentymarkets",
+            "Porto",
+            "RadPHP",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "aimeos",
+            "annotatecms",
+            "attogram",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "cockpit",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "eZ Platform",
+            "elgg",
+            "expressionengine",
+            "fuelphp",
+            "grav",
+            "installer",
+            "itop",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lavalite",
+            "lithium",
+            "magento",
+            "majima",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "modx",
+            "moodle",
+            "osclass",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "pxcms",
+            "reindex",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "sydes",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "yawik",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "htmlburger/carbon-fields",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/htmlburger/carbon-fields.git",
+            "reference": "f2e7e7b306f872b606b16909d2a2ee906381d5d1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/f2e7e7b306f872b606b16909d2a2ee906381d5d1",
+            "reference": "f2e7e7b306f872b606b16909d2a2ee906381d5d1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "^0.9.7",
+            "phpunit/phpunit": "~4.8"
+        },
+        "time": "2018-03-16T09:06:14+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Carbon_Fields\\": "core/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-only"
+        ],
+        "authors": [
+            {
+                "name": "htmlBurger",
+                "email": "wordpress@htmlburger.com",
+                "homepage": "https://htmlburger.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Marin Atanasov",
+                "email": "contact@marinatanasov.com",
+                "homepage": "http://marinatanasov.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Siyan Panayotov",
+                "homepage": "http://siyanpanayotov.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Georgi Stoyanov",
+                "email": "stoyanov.gs@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Stanimir Panchev",
+                "email": "Stan4omir@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Peter Petrov",
+                "email": "peter.petrov89@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Plamen Kostadinov",
+                "email": "pkostadinov.2create@gmail.com",
+                "homepage": "http://plasmen.info/",
+                "role": "Developer"
+            },
+            {
+                "name": "Stanimir Stoyanov",
+                "email": "stanimir.k.stoyanov@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Georgi Popov",
+                "homepage": "http://magadanski.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "German Velchev",
+                "email": "germozy@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Rashko Petrov",
+                "email": "brutalenemy666@gmail.com",
+                "homepage": "http://errorfactory.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Miroslav Mitev",
+                "email": "mmitev.2create@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Kaloyan Ivanov",
+                "email": "kaloyanxivanov@gmail.com",
+                "homepage": "http://vilepixels.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Atanas Angelov",
+                "email": "atanas.angelov.dev@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Alexander Panayotov",
+                "email": "alexander.panayotov@gmail.com",
+                "homepage": "http://alexanderpanayotov.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Viktor Vasilev",
+                "email": "liberalcho@gmail.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
+        "homepage": "http://carbonfields.net/"
+    },
+    {
+        "name": "icanboogie/inflector",
+        "version": "v1.4.4",
+        "version_normalized": "1.4.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ICanBoogie/Inflector.git",
+            "reference": "a875d3c16215327e1a2555592b167ae2591c5c2f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/a875d3c16215327e1a2555592b167ae2591c5c2f",
+            "reference": "a875d3c16215327e1a2555592b167ae2591c5c2f",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "php": ">=5.3.4"
+        },
+        "time": "2017-06-30T13:16:14+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ],
+            "files": [
+                "lib/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Olivier Laviale",
+                "email": "olivier.laviale@gmail.com",
+                "homepage": "http://www.weirdog.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Multilingual inflector that transforms words from singular to plural, underscore to camel case, and more.",
+        "homepage": "http://icanboogie.org/",
+        "keywords": [
+            "camelize",
+            "hyphenate",
+            "inflect",
+            "multilingual",
+            "pluralize",
+            "singularize",
+            "underscore"
+        ]
+    },
+    {
+        "name": "redux-framework/redux-framework",
+        "version": "3.6.4",
+        "version_normalized": "3.6.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reduxframework/redux-framework.git",
+            "reference": "0254c25aa633dfc2dcd0eb9e43cebf4d6b855f44"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/reduxframework/redux-framework/zipball/0254c25aa633dfc2dcd0eb9e43cebf4d6b855f44",
+            "reference": "0254c25aa633dfc2dcd0eb9e43cebf4d6b855f44",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "php": ">=5.2.0"
+        },
+        "time": "2017-03-24T15:48:59+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0+"
+        ],
+        "authors": [
+            {
+                "name": "Team Redux"
+            }
+        ],
+        "description": "Redux is a simple, truly extensible options framework for WordPress themes and plugins.",
+        "homepage": "http://reduxframework.com",
+        "keywords": [
+            "Settings",
+            "customizer",
+            "framework",
+            "options",
+            "plugin",
+            "redux",
+            "wordpress"
+        ]
+    },
+    {
+        "name": "webdevstudios/cmb2-post-search-field",
+        "version": "v0.2.5",
+        "version_normalized": "0.2.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/WebDevStudios/CMB2-Post-Search-field.git",
+            "reference": "f1c0422a3de6e95f5b5597fe734f86ae51990ce8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/WebDevStudios/CMB2-Post-Search-field/zipball/f1c0422a3de6e95f5b5597fe734f86ae51990ce8",
+            "reference": "f1c0422a3de6e95f5b5597fe734f86ae51990ce8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">5.2.4"
+        },
+        "suggest": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2016-05-30T06:58:49+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "WebDevStudios",
+                "email": "contact@webdevstudios.com",
+                "homepage": "https://github.com/WebDevStudios",
+                "role": "Developer"
+            }
+        ],
+        "description": "Custom field for CMB2 which adds a post-search dialog for searching/attaching other post IDs.",
+        "homepage": "https://github.com/WebDevStudios/CMB2",
+        "keywords": [
+            "field",
+            "metabox",
+            "plugin",
+            "search",
+            "wordpress"
+        ]
+    }
+]

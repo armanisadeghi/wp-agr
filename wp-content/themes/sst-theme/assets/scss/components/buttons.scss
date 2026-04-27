@@ -1,0 +1,154 @@
+a.button,
+.button,
+a.button:visited {
+  line-height: 1;
+  display: inline-block;
+  padding: 10px 20px 12px;
+  font-family: $header-font-family;
+  font-weight: 400;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: 0.25s;
+  width: auto;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @include animate();
+  &.color1,
+  &.primary {
+    background-color: $theme-color;
+    color: $theme-color-contrast;
+    line-height: 1.1;
+    &:hover {
+      background-color: $theme-color--hover;
+      color: $theme-color-contrast;
+      text-decoration: none !important;
+    }
+  }
+
+  @if $secondary-color != null {
+    &.secondary {
+      background-color: $secondary-color;
+      color: foreground($secondary-color);
+      border: none;
+
+      &:hover {
+        background-color: darken($secondary-color, 5%);
+      }
+    }
+  }
+
+  &.black {
+    background-color: #0E141E;
+    color: #fff;
+    &:hover {
+      background-color: #2B446D;
+    }
+  }
+
+  &.dark {
+    $color: #747270;
+    background: $color;
+    border-color: $color;
+    color: #FFF;
+    &:hover {
+      background: darken($color, 10%);
+      border-color: darken($color, 10%);
+    }
+  }
+
+  &.faded {
+    background: #b5b2b5;
+    color: foreground(#b5b2b5);
+    &:hover {
+      background: darken(#b5b5b5, 5%);
+    }
+  }
+
+  &.no-color,
+  &.outline {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 35px;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &.white {
+    color: #252525;
+    font-family: $header-font-family;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 15px 58px;
+    margin-bottom: 10px;
+    &:hover {
+      background-color: darken($white, 5%);
+    }
+  }
+
+  &.hollow {
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    &.primary {
+      border-color: $primary-color;
+      color: $primary-color;
+      &:hover {
+        color: foreground($primary-color);
+      }
+    }
+    @if $secondary-color != null {
+      &.secondary {
+        border-color: $secondary-color;
+        color: $secondary-color;
+        &:hover {
+          color: foreground($secondary-color);
+        }
+      }
+    }
+    &.faded {
+      background-color: transparent;
+      border-color: #b5b2b5;
+      color: #b5b2b5;
+      &:hover {
+        background-color: #b5b5b5;
+        color: #FFF;
+      }
+    }
+  }
+
+  &.rounded {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+  }
+
+  &.wide {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+}
+
+// @TODO: mixin for creating buttons
+@mixin button() {
+
+}
+
+@mixin button-color($color: $primary-color) {
+
+}
+
+@mixin button-size($size: "large") {
+
+}
+
+@mixin button-style($style: "rounded") {
+
+}

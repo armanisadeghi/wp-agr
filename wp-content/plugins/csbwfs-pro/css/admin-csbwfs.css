@@ -1,0 +1,62 @@
+/* Custom share Buttons With Floating Sidebar (C)
+
+ * Author: Raghunath Gurjar
+
+ * */
+@media (max-width:500px) {
+#csbwfs-pro-admin h1 {font-size: 10px;}
+#csbwfs-pro-admin h2 {font-size: 12px;font-weight:bold;}
+#csbwfs-pro-admin input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="text"],textarea {padding: 6px 10px; width:100%;}
+#csbwfs-pro-admin strong {font-size: 12px;}
+#csbwfs-pro-admin table {width:100%;}
+#csbwf-tab-menu {width:100%; padding:1%;background: none repeat scroll 0 0 #ccc;}
+#csbwf-tab-menu a {background: none repeat scroll 0 0 #DCA808; border: 0 none;color: #FFFFFF;font-size: 10px;font-weight: bold;padding: 0px 7px;opacity:0.5;}
+#csbwf-tab-menu a:hover{cursor:pointer;background: none repeat scroll 0 0 #DCA808;opacity:1;}
+#csbwf-tab-menu a.active{ background: none repeat scroll 0 0 #DCA808;opacity:1;}
+#csbwf-sidebar-admin-form .submit-btn {width: 100%; display: inline-block; padding-top: 10px; margin-top: 10px; border-top: 1px dashed #DCA808;}
+#csbwf-sidebar-admin-form .submit-btn .button-primary{cursor:pointer;height:35px;}
+#csbwf-sidebar-admin-form .csbwfs-setting p label {min-width:75px;display:inline-block;}
+#div-csbwfs-support img {width:auto; height:auto;}
+#csbwf-sidebar-admin-form ul {list-style:inside}
+#csbwf-sidebar-admin-form #div-csbwfs-support .contact-author{    background: none repeat scroll 0 0 #DC22FF;border: 0 none;color: #FFFFFF;display: inline-block;font-size: 12px;   font-weight: bold;padding: 2px 5px;text-decoration: none;}
+p.csbwfs-genp{width:280px;}
+p.csbwfs-genp span{width: 94px;display: inline-block;position: relative; padding:5px;}
+}
+@media (max-width:1000px) and (min-width:501px) {
+#csbwfs-pro-admin h1 {font-size: 16px;}
+#csbwfs-pro-admin h2 {font-size: 14px;font-weight:bold;}
+#csbwfs-pro-admin input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="text"],textarea {padding: 6px 10px; width:auto;}
+#csbwfs-pro-admin strong {font-size: 12px;}
+#csbwf-tab-menu {width:100%; padding:1%;background: none repeat scroll 0 0 #ccc;}
+#csbwf-tab-menu a {background: none repeat scroll 0 0 #DCA808; border: 0 none;color: #FFFFFF;display: inline-block;font-size: 10px;font-weight: bold;padding: 5px 10px;opacity:0.5;}
+#csbwf-tab-menu a:hover{cursor:pointer;background: none repeat scroll 0 0 #DCA808;opacity:1;}
+#csbwf-tab-menu a.active{ background: none repeat scroll 0 0 #DCA808;opacity:1;}
+#csbwf-sidebar-admin-form .submit-btn {width: 100%; display: inline-block; padding-top: 10px; margin-top: 10px; border-top: 1px dashed #DCA808;}
+#csbwf-sidebar-admin-form .submit-btn .button-primary{cursor:pointer;height:35px;}
+#csbwf-sidebar-admin-form .csbwfs-setting p label {min-width:75px;display:inline-block;}
+#div-csbwfs-support img {width:auto; height:auto;}
+#csbwf-sidebar-admin-form ul {list-style:inside}
+#csbwf-sidebar-admin-form #div-csbwfs-support .contact-author{    background: none repeat scroll 0 0 #DC22FF;border: 0 none;color: #FFFFFF;display: inline-block;font-size: 12px;   font-weight: bold;padding: 2px 5px;text-decoration: none;}
+p.csbwfs-genp{width:400px;}
+p.csbwfs-genp span{width: 105px;display: inline-block;position: relative;}
+}
+
+@media (max-width:2200px) and (min-width:1001px) {
+#csbwf-tab-menu {width:100%; padding:1%;background: none repeat scroll 0 0 #ccc;}
+#csbwf-tab-menu a {background: none repeat scroll 0 0 #DCA808; border: 0 none;color: #FFFFFF;display: inline-block;font-size: 16px;font-weight: bold;padding: 12px 15px;opacity:0.5;}
+#csbwf-tab-menu a:hover{cursor:pointer;background: none repeat scroll 0 0 #DCA808;opacity:1;}
+#csbwf-tab-menu a.active{ background: none repeat scroll 0 0 #DCA808;opacity:1;}
+#csbwf-sidebar-admin-form .submit-btn {width: 100%; display: inline-block; padding-top: 10px; margin-top: 10px; border-top: 1px dashed #DCA808;}
+#csbwf-sidebar-admin-form .submit-btn .button-primary{cursor:pointer;height:35px;}
+#csbwf-sidebar-admin-form .csbwfs-setting p label {min-width:75px;display:inline-block;}
+#div-csbwfs-support img {width:auto; height:auto;}
+#csbwf-sidebar-admin-form ul {list-style:inside}
+#csbwf-sidebar-admin-form 
+#div-csbwfs-support .contact-author{background: none repeat scroll 0 0 #DC22FF;border: 0 none;color: #FFFFFF;display: inline-block;font-size: 12px;   font-weight: bold;padding: 2px 5px;text-decoration: none;}
+p.csbwfs-genp{width:540px;}
+p.csbwfs-genp span{width: 105px;display: inline-block;position: relative;}
+}
+#csbwfs-pro-admin #div-csbwfs-general table {font-size: 12px;}
+#csbwfs-pro-admin #div-csbwfs-general table td {line-height: 12px;}
+#csbwfs-pro-admin #btnordertable input[type="text"]{height: 25px; padding: 0;text-align: center;width: 50px;}
+#csbwfs-pro-admin .topsubbtn{padding-top: 10px;float: right;}

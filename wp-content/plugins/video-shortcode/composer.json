@@ -1,0 +1,34 @@
+{
+	"name": "video-shortcode",
+	"description": "Add button on WordPress Editor that allows to add oEmbed videos supported by WordPress. Ability to add thumbnail preview for your video.",
+	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"homepage": "https://sachittandukar.com",
+	"license": "GPLv2",
+	"authors": [
+	{
+		"name": "Sachit Tandukar",
+		"homepage": "http://sachittandukar.com"
+	}
+	],
+	"minimum-stability": "dev",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"classmap": ["video-shortcode.php", "includes/" ]
+	},
+	"require": {
+		"php": ">=5.2",
+		"xrstf/composer-php52": "1.*",
+		"TGMPA/TGM-Plugin-Activation": "^2.5.2"
+	},
+	"scripts": {
+        "post-install-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-update-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-autoload-dump": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ]
+    }
+}

@@ -1,0 +1,89 @@
+.page-navigation {
+  @media all and (min-width: 900px) {
+    width: 70%;
+  }
+}
+
+ul {
+  &#more-nav {
+    @media all and (min-width: 900px) {
+      display: inline-block;
+      vertical-align: top;
+      list-style-type: none;
+      padding: 0;
+      margin: 3px 0;
+    }
+  }
+
+  &#more-nav {
+    position: relative;
+    max-width: 50px;
+    float: right;
+
+    @media #{$media-tabs-landscape} {
+      display: none;
+    }
+
+    .toggle-more {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 3px;
+      margin: 5px 0 0;
+      padding: 15px;
+      font-size: 0;
+      opacity: 0.7;
+      cursor: pointer;
+
+      @media screen and (min-width: 1201px) {
+        display: none;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        background-color: $white;
+        width: 20px;
+        height: 3px;
+      }
+
+      &:before {
+        top: 5px;
+        box-shadow: 0 6px 0 $white;
+      }
+
+      &:after {
+        bottom: 10px;
+      }
+
+      + .menu-collapser {
+        display: none !important;
+      }
+
+    }
+  }
+
+  &.subfilter {
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    display: none;
+    min-width: 200px;
+
+    li {
+      background-color: $theme-color-alt--hover;
+      width: 100%;
+      &.last-child {
+        background-color: transparent;
+        margin: 0;
+        padding: 2px;
+      }
+    }
+  }
+}

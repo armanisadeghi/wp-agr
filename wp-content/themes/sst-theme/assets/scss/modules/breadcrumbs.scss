@@ -1,0 +1,109 @@
+.woocommerce-breadcrumb {
+  .woocommerce & {
+    font-size: 10px;
+  }
+  color: #231f20;
+  font-family: $body-font-family;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0 0 30px;
+  padding: 20px 0;
+  a {
+    text-decoration: none;
+  }
+  .first-crumb {
+    color: #9fa1a1;
+    font-family: $body-font-family;
+    font-weight: 500;
+    .post-type-archive-product & {
+      color: #231f20;
+    }
+  }
+}
+
+.breadcrumb {
+  color: #9fa1a1;
+  span {
+    font-family: $header-font-family;
+    font-weight: 400;
+    font-size: 10px;
+    color: #231f20;
+    text-transform: uppercase;
+    padding-right: 10px;
+    padding-left: 10px;
+    @media all and (max-width: 900px) {
+      display: inline-block;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+
+    &[typeof="ListItem"] {
+      &:first-child {
+        a,
+        span {
+          font-weight: 500;
+          color: $black;
+          padding-left: 0;
+        }
+      }
+
+      + [typeof="ListItem"] {
+        a,
+        span {
+          span {
+            font-weight: 400;
+            font-size: 10px;
+            color: #231f20;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &:first-child {
+      .page-template-template-sst_contact-2 &,
+      .page-template-template-sst_location & {
+        color: #231f20;
+        font-weight: 500;
+      }
+      a {
+        text-decoration: none;
+        font-family: $header-font-family;
+        color: #231f20;
+        font-weight: 500;
+      }
+    }
+  }
+  span a {
+    color: #9fa1a1;
+    text-decoration: none;
+    font-family: $header-font-family;
+    @media all and (max-width: 900px) {
+      display: inline-block;
+      line-height: 2;
+    }
+  }
+  strong {
+    font-weight: 500;
+  }
+  > span {
+    &:last-child,
+    a span {
+      color: #231f20;
+      @media all and (max-width: 900px) {
+        line-height: 1.25;
+      }
+    }
+    a span:first-child {
+      color: #231f20;
+      @media all and (max-width: 900px) {
+        line-height: 1;
+        font-weight: 400;
+      }
+    }
+    &:last-child a span {
+      font-size: 10px;
+      color: #231f20;
+    }
+  }
+}

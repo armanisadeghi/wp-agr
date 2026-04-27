@@ -1,0 +1,266 @@
+//added for contact 2=====================
+.main-container {
+  .gform_wrapper {
+    li {
+      &.gfield {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-left: 0;
+        vertical-align: top;
+
+        label {
+          display: none;
+        }
+
+        input[type=text],
+        input[type=url],
+        input[type=tel],
+        input[type=number],
+        input[type=email],
+        input[type=date],
+        input[type=datetime],
+        select,
+        textarea {
+          width: 100%;
+          padding: 8px 15px;
+          border: 1px solid lighten($black, 20%);
+        }
+
+        &.fullwidth {
+          .clear-multi {
+            .ginput_container {
+              display: inline-block;
+              width: 33.33%;
+              padding-right: 10px;
+              float: left;
+
+              &:last-child {
+                padding-right: 0;
+              }
+            }
+          }
+
+          textarea {
+            width: 100%;
+          }
+        }
+
+        .ginput_container_date {
+          input {
+            padding-right: 25px;
+          }
+
+          label {
+            display: block;
+          }
+
+          img {
+            margin-left: -22px;
+            margin-bottom: -4px;
+          }
+        }
+
+        .ginput_container_time {
+          input {
+            width: 90%;
+            float: left;
+
+            + i {
+              display: inline-block;
+              padding: 4px;
+              font-size: 16px;
+              font-weight: bold;
+              float: right;
+            }
+          }
+          label {
+            display: none;
+          }
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          &.gfield_radio{
+            li{
+              display: inline-block;
+              margin-right: 15px;
+            }
+          }
+        }
+        li {
+          margin-left: 0;
+          margin-bottom: 3px;
+        }
+        .ginput_container_radio,
+        .ginput_container_checkbox {
+          input {
+            margin-right: 5px;
+            vertical-align: middle;
+
+            & + label {
+              font-weight: normal;
+            }
+          }
+          label {
+            display: inline-block;
+          }
+        }
+
+        .gf_name_has_2 {
+          .name_first,
+          .name_last {
+            float: left;
+            width: 49%;
+          }
+
+          .name_last {
+            float: right;
+          }
+        }
+
+        &.show-label{
+          > label {
+            display: block;
+            font-weight: bold;
+          }
+          .ginput_container_date{
+            position: relative;
+            img{
+              position: absolute;
+              top: 7px;
+              right: 5px;
+              margin-left: -22px;
+              margin-bottom: -4px;
+            }
+          }
+        }
+      }
+
+      &.radiobutton,
+      &.checkbox {
+        label {
+          display: block;
+          font-weight: bold;
+        }
+      }
+
+      .ginput_container_address {
+        .ginput_full {
+          width: 100%;
+        }
+        .address_city,
+        .address_state,
+        .address_zip {
+          width: 100%;
+          margin-right: 2%;
+        }
+
+        &.has_city.has_state.has_zip {
+          .address_city,
+          .address_state {
+            width: 32%;
+            margin-right: 2%;
+          }
+          span.address_zip {
+            width: 32%;
+            margin-right: 0;
+          }
+        }
+        &:not(.has_city),
+        &:not(.has_state),
+        &:not(.has_zip) {
+          .address_city,
+          .address_state,
+          .address_zip {
+            width: 100%;
+          }
+        }
+        &:not(.has_city.has_state),
+        &:not(.has_state.has_city),
+        &:not(.has_zip.has_state) {
+          .address_city,
+          .address_state,
+          .address_zip {
+            width: 100%;
+          }
+        }
+        &:not(.has_state.has_city) {
+          .address_city,
+          .address_state,
+          .address_zip {
+            width: 100%;
+          }
+        }
+
+        &.has_city.has_state {
+          .address_city,
+          .address_state {
+            width: 48%;
+            margin-right: 2%;
+          }
+        }
+
+        &.has_city.has_zip {
+          .address_city,
+          .address_zip {
+            width: 48%;
+            margin-right: 2%;
+          }
+        }
+
+        &.has_state.has_zip {
+          .address_state,
+          .address_zip {
+            width: 48%;
+            margin-right: 2%;
+          }
+        }
+        .address_zip {
+          margin-right: 0;
+        }
+        .address_state {
+          select {
+            height: 30px;
+          }
+        }
+        > span {
+          display: block;
+          float: left;
+          margin-bottom: 10px;
+        }
+      }
+      .ginput_container_email {
+        > .ginput_left,
+        > .ginput_right {
+          width: 49%;
+        }
+        > .ginput_left {
+          float: left;
+        }
+        > .ginput_right {
+          float: right;
+        }
+      }
+    }
+
+    .gform_button,
+    input[type=button],
+    input[type=submit] {
+      background-color: $theme-color;
+      color: $white;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        background-color: darken($theme-color, 15%);
+      }
+    }
+
+    .validation_message {
+      color: red;
+    }
+  }
+}

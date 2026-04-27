@@ -1,0 +1,59 @@
+.comments-area {
+  .comment {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    @extend .clearfix;
+  }
+  .avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .comment-body {
+    position: relative;
+    padding-left: 90px;
+  }
+  .comment-author,
+  .comment-meta,
+  .comment-awaiting-moderation {
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+  }
+  .comment-awaiting-moderation + br {
+    display: none;
+  }
+  .comment-author .fn {
+    font-weight: 600;
+  }
+  p {
+    clear: both;
+    .page-content & {
+      font-weight: 400;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $primary-color;
+  }
+  .children {
+    margin-left: 50px;
+  }
+
+  .comment-reply-link {
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+}
+
+.comment-respond {
+  margin-top: 40px;
+  .comment-reply-title{
+    font-size: 22px;
+  }
+}

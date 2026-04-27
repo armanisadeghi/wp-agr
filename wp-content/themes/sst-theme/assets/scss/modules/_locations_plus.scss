@@ -1,0 +1,307 @@
+sup {
+  font-size: 9px;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.location-wrapper {
+  .pg-title {
+    margin-top: 0;
+  }
+
+  .breadcrumb {
+    span {
+      color: $black;
+      a {
+        font-size: 22px;
+        color: $black;
+      }
+    }
+
+    span.title {
+      padding: 0;
+      font-size: 10px;
+      color: #9fa1a1;
+    }
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: #9fa1a1;
+    }
+  }
+
+  .billboard {
+    padding: 15px;
+
+    .holder {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .billboard-content {
+      position: relative;
+      width: 100%;
+
+      @media all and (min-width: 768px) {
+        width: 35%;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        padding-bottom: 50px;
+        font-size: 36px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $primary-color;
+      }
+
+      .detail {
+        @media all and (min-width: 768px) {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(0, -50%);
+          width: 90%;
+        }
+
+        a {
+          @extend .button;
+          @extend .primary;
+          padding: 8px 35px;
+        }
+      }
+
+      + .map-holder {
+        width: 100%;
+
+        @media all and (min-width: 768px) {
+          width: 65%;
+        }
+      }
+    }
+
+    .map-holder {
+      width: 100%;
+      max-height: 390px;
+
+      iframe {
+        width: 100%;
+        max-height: 390px;
+      }
+    }
+
+    .location-detail {
+      margin-top: 15px;
+      margin-left: 0;
+      list-style: none;
+
+      ul {
+        margin-left: 0;
+        list-style: none;
+      }
+
+      li,
+      a,
+      span,
+      strong,
+      small {
+        font-size: 13px;
+        color: $black;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      li {
+        position: relative;
+        padding: 2px 0 20px 35px;
+        background-position: top left;
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block;
+          border: 1px solid $primary-color;
+          border-radius: 100%;
+          width: 22px;
+          height: 22px;
+          font-family: 'FontAwesome';
+          font-size: 13px;
+          color: $primary-color;
+          text-align: center;
+          line-height: 22px;
+        }
+
+        &.address {
+          background: transparent;
+          @extend .fa-map-marker;
+        }
+
+        &.phone {
+          background: transparent;
+          @extend .fa-phone;
+        }
+
+        &.time {
+          background: transparent;
+          @extend .fa-chevron-down;
+
+          &:before {
+            transform: rotate(30deg);
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    padding-bottom: 60px;
+    font-size: 13px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .main-wrapper {
+    padding-bottom: 0;
+  }
+
+  .inner-wrapper {
+    background: #FFF;
+  }
+
+  .widget-locations {
+    .widget-title {
+      font-family: $body-font-family;
+      font-weight: 500;
+      color: #353231;
+      font-size: 16px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      text-transform: none;
+    }
+    ul {
+      list-style: none;
+    }
+    .widget-entry {
+      padding: 0;
+    }
+    #custom-search-input {
+      padding: 0 40px 15px;
+
+      @media #{$media-tabs-landscape} {
+        padding: 0 20px 10px;
+      }
+    }
+    .listing-location {
+      padding: 0;
+      overflow: hidden;
+      margin-left: -10px;
+      margin-right: -10px;
+      font-weight: 500;
+      font-size: 14px;
+
+      li {
+        position: relative;
+        border-bottom: none;
+        padding: 9px 10px 0 10px;
+        margin-bottom: 12px;
+        margin-right: 0;
+        @extend .fa-map-marker;
+        @include mq($from: tablet) {
+          float: left;
+          width: 33.3333%;
+          margin: 0;
+          padding-bottom: 35px;
+        }
+
+        &:before {
+          display: none;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          font-family: 'FontAwesome';
+          font-size: 28px;
+          color: $primary-color;
+        }
+
+        > a,
+        > p {
+          border-bottom: 1px solid #e9e9e9;
+          padding: 9px 0 19px 35px;
+          display: block;
+        }
+        &:nth-child(3n+1) {
+          clear: left;
+        }
+
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      h4:not(.widget-title) {
+        text-transform: uppercase;
+        padding: 0;
+        display: block;
+        color: #000;
+        font-family: $body-font-family;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+    p {
+      font-weight: 300;
+      font-size: 13px;
+      padding: 0;
+      color: #9fa1a1;
+      line-height: 1.4;
+      .sidebar & {
+        text-transform: none;
+      }
+    }
+  }
+
+  &.parent-page {
+    .widget-title {
+      display: none;
+    }
+
+    .billboard-content {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        font-weight: 900;
+        line-height: 1;
+      }
+    }
+  }
+}

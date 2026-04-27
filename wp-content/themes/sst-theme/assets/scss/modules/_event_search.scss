@@ -1,0 +1,120 @@
+.event-search-holder {
+  position: relative;
+  min-width: 500px;
+  height: 30px;
+  line-height: 30px;
+
+  @media all and (max-width: 580px) {
+    min-width: 250px;
+  }
+
+  .event-search-icon {
+    transition: 0s !important;
+  }
+
+  .event-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.3s;
+
+    input {
+      border: 1px solid $black !important;
+      border-radius: 2px !important;
+      width: 100%;
+      height: 25px !important;
+      padding-right: 30px !important;
+      padding-left: 30px !important;
+      font-size: 14px;
+      color: $black;
+      line-height: 1.3;
+
+      &[type*="submit"] {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: auto;
+      }
+
+      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $black !important;
+      }
+      &::-moz-placeholder { /* Firefox 19+ */
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $black !important;
+      }
+      &:-ms-input-placeholder { /* IE 10+ */
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $black !important;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $black !important;
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      background: url("#{$img-path}search-icon-image.png") transparent no-repeat center center;
+      background-size: initial;
+      border: 0;
+      width: 18px;
+      height: 24px;
+      padding: 15px;
+      font-size: 0;
+      cursor: pointer;
+      outline: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &.active {
+    .event-search-icon {
+      padding-right: 0 !important;
+      font-size: 0 !important;
+      float: right;
+      text-decoration: none;
+      z-index: 1;
+
+      &:before {
+        content: 'X' !important;
+        background: none transparent !important;
+        border-bottom: 0 !important;
+        margin-right: 0 !important;
+        font-size: 15px;
+        line-height: 24px;
+        text-decoration: none !important;
+        font-style: normal !important;
+        font-family: Arial, sans-serif;
+      }
+    }
+
+    .event-search {
+      width: 100%;
+      overflow: visible;
+      opacity: 1;
+
+      input {
+        height: 30px !important;
+        padding-top: 2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+/* CSBWFS Lightbox form */
+#csbwfs_lightbox #csbwfs_content form{
+margin: 0 auto !important;
+    width: 90% !important;
+}
+#csbwfs_lightbox #csbwfs_content form label {
+    color: #666666;
+    display: inline-block;
+    width: 60px;}   
+#csbwfs_lightbox #csbwfs_content form .req {
+    color: red;
+}
+#csbwfs_lightbox #csbwfs_content form input , textarea {
+    color: #666666 !important;
+    display: inline-block !important;
+    width: 90% !important;    height: 90% !important;}   
+#csbwfs_lightbox #csbwfs_content form textarea {height: 40px !important;}    
+#csbwfs_lightbox #csbwfs_content form input[type="submit"],input.cswbfs_submit_btn {
+    width: 20% ; background: none repeat scroll 0 0 #E73E34; color: #FFFFFF !important;
+    font-size: 100% !important;
+    font-weight: bold !important;
+    margin-left: 30% !important;
+    margin-right: 30% !important;
+    width: 40% !important;padding: 1%;}
+#csbwfs_lightbox #csbwfs_content form input.cswbfs_submit_btn:hover {background:#000;   cursor: pointer;}

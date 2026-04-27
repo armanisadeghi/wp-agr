@@ -1,0 +1,146 @@
+.group-holder {
+  position: relative;
+
+  [class*="-group"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    width: 100%;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: -1;
+
+    h1,
+    h2,
+    h3 {
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    &.active {
+      position: static;
+      opacity: 1;
+
+      h1,
+      h2,
+      h3 {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.senction-changer {
+  text-align: right;
+  &.absolute {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 6;
+  }
+}
+
+.section-toggle {
+  position: relative;
+  display: inline-block;
+  .toggle-title {
+    background: darken($white, 30%);
+    margin-bottom: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: lighten($black, 20%);
+    line-height: 1;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: $theme-color;
+
+      .landing-page-wrapper & {
+        color: $white;
+      }
+
+      &:after {
+        border-top-color: $white;
+      }
+
+      a {
+        color: $white;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      left: auto;
+      transform: translate(0, -50%);
+      display: inline-block;
+      background: transparent;
+      border-top: 12px solid lighten($black, 40%);
+      border-right: 8px solid transparent;
+      border-bottom: 0;
+      border-left: 8px solid transparent;
+      width: 0;
+      height: 0;
+      transition: 0.3s;
+    }
+
+    .landing-page-wrapper & {
+      font-size: 16px;
+      font-weight: 600;
+      color: lighten($black, 40%);
+    }
+
+    a {
+      display: inline-block;
+      padding: 12px 42px 12px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      color: lighten($black, 40%);
+      text-decoration: none;
+      transition: 0.3s;
+
+      &:hover {
+        text-decoration: none;
+        color: $white;
+      }
+    }
+  }
+
+  .toggle-list {
+    position: absolute;
+    top: 100%;
+    display: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      display: inline-block;
+      width: 100%;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 16px 25px;
+      background: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      line-height: 1;
+      color: $theme-color;
+
+      &:hover {
+        background-color: darken($white, 6%);
+      }
+    }
+  }
+}

@@ -1,0 +1,794 @@
+/* billboard section */
+
+.page-template-template-sst_real_estate,
+.page-template-template-sst_real_estate_home {
+  background: #FFF;
+  .button {
+    border-radius: 0;
+    padding: 20px 41px;
+    font-size: 16px;
+    text-transform: none;
+    font-weight: normal;
+  }
+  .page-content p {
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: #000;
+  }
+  h2,
+  h3,
+  h4 {
+    &:after {
+      display: none;
+    }
+  }
+
+  .holder {
+    padding-left: 15px;
+    padding-right: 15px;
+
+  }
+  /* .billboard ================ */
+
+  .holder {
+    margin-top: 0 !important;
+  }
+  #billboard {
+    position: relative;
+    margin-bottom: 2px;
+    .holder {
+      @include mq($until: desktop) {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+    }
+    @include mq($from: tablet) {
+      max-height: 555px;
+      height: auto;
+    }
+    .image-container {
+      max-height: 555px;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      @include mq($from: mobile-landscape) {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .overlay-content {
+
+      .detail {
+        @include mq($from: mobile-landscape) {
+          padding-left: 250px;
+          text-align: left;
+        }
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: 15px 35px;
+      font-size: 14px;
+      margin: 0 auto;
+      width: auto;
+
+      @media screen and (max-width: 540px) {
+        padding: 15px 25px;
+      }
+    }
+
+  }
+
+  /* .billboard text ================ */
+  .billboard-txt {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include mq($from: tablet) {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFF;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-size: 35px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      font-family: $header-font-family;
+      max-width: 836px;
+      margin: auto;
+    }
+    p {
+      font-weight: 400;
+      padding: 10px 50px;
+      font-size: 14px;
+      margin-bottom: 17px;
+      @include mq($from: tablet) {
+        padding: 18px 50px;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.3);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+      }
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 3px;
+      &:after {
+        display: none;
+      }
+      @include mq($from: tablet) {
+        font-size: 35px;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+      }
+
+    }
+
+  }
+
+  /* .billboard overlay ================ */
+  .billboard-overlay {
+    background: rgba(17, 15, 17, 0.8);
+    width: 100%;
+    color: #fff;
+    transform: translate(0, 0);
+    max-height: 100%;
+    border-color: #FFF;
+    border-style: solid;
+    border-width: 0;
+    height: auto;
+    @include mq($from: desktop) {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 120px;
+    }
+
+    .overlay-content .container {
+      padding: 25px 0;
+    }
+
+    .detail {
+      margin-bottom: 15px;
+      @include mq($from: desktop) {
+        width: 70%;
+        float: left;
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 800;
+      border-bottom: 2px solid #FFF;
+      padding-bottom: 13px;
+      strong {
+        float: left;
+        font-size: 55px;
+        padding-top: 4px;
+        padding-right: 8px;
+        padding-left: 3px;
+        margin-top: 7px;
+        line-height: 0.3;
+      }
+
+    }
+
+    .sell-thumbnail {
+      display: none;
+      @include mq($from: mobile-landscape) {
+        position: absolute;
+        left: 15px;
+        bottom: -40px;
+        display: block;
+      }
+    }
+
+    .button {
+      position: relative;
+      font-size: 14px;
+      padding: 6px 27px;
+      margin: 15px 46px 0 0;
+      @include mq($from: desktop) {
+        float: right;
+      }
+      font-weight: 700;
+      font-family: $header-font-family;
+      &:after {
+        content: "";
+        position: absolute;
+        right: -50px;
+        top: -3px;
+        display: inline-block;
+        background: url("#{$img-path}sprite.png") no-repeat;
+        background-position: -89px -11px;
+        width: 46px;
+        height: 36px;
+      }
+
+      @include mq($until: 540px) {
+        padding: 6px 20px;
+        float: none;
+        margin: auto;
+        display: table;
+      }
+    }
+  }
+
+  /* Owner intro ============== */
+  .owner-intro {
+    .holder {
+      position: relative;
+      @include mq($from: tablet) {
+        padding-right: 304px;
+      }
+    }
+    figure {
+      @include mq($from: tablet) {
+        position: absolute;
+        right: 0;
+        bottom: -44px;
+      }
+    }
+  }
+
+  .van-ad-section {
+    padding: 0;
+    margin: 0;
+
+    .detail {
+      @include mq($from: tablet) {
+        margin-top: 40px;
+      }
+
+      @media screen and (max-width: 900px) {
+        width: 100%;
+      }
+    }
+
+    h2,
+    h3,
+    h4 {
+      color: #deecef;
+      font-size: 30px;
+    }
+    p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #deecef;
+    }
+  }
+
+  // van-ad-section ends
+
+  .col3-section {
+    @include mq($from: tablet) {
+      margin-left: -23px;
+      margin-right: -23px;
+      max-width: 100%;
+      height: auto;
+      overflow-x: hidden;
+    }
+    img {
+      margin: auto;
+    }
+    .item {
+      @include mq($until: tablet) {
+        margin-bottom: 20px;
+      }
+      @include mq($from: tablet) {
+        float: left;
+        width: 33.3333%;
+        padding-left: 23px;
+        padding-right: 23px;
+      }
+
+      &:nth-of-type(1) {
+        @include mq($from: tablet) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      &:nth-of-type(2) {
+        @include mq($from: tablet) {
+          margin-top: 5px;
+        }
+      }
+    }
+    .detail {
+      padding-bottom: 23px;
+      padding-top: 0;
+      text-align: center;
+
+      .detail {
+        border-bottom: 1px solid #e6e6e6;
+      }
+    }
+    h2,
+    h3,
+    h4 {
+      font-family: $header-font-family;
+      font-weight: 400;
+      color: $primary-color;
+      font-size: 20px;
+      padding: 0;
+      margin: 17px 0;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+  }
+
+  .trusted-agent {
+    border-top: 2px solid #eaeaea;
+    h2,
+    h3,
+    h4 {
+      font-weight: 300;
+      margin-bottom: 10px;
+      .page-template-template-sst_real_estate & {
+        font-size: 34px;
+        font-family: $header-font-family;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding-bottom: 22px;
+        color: #252525;
+      }
+    }
+  }
+
+  #main-nav {
+    li {
+      a {
+        padding: 16px 12px;
+
+        @media screen and (max-width: 1200px) {
+          padding: 16px 8px;
+        }
+      }
+    }
+  }
+}
+
+.page-template-template-sst_real_estate_home {
+  /* .billboard ================ */
+  .billboard {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2px;
+
+    @include mq($from: tablet) {
+      max-height: 555px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .overlay-content .detail {
+      @include mq($from: mobile-landscape) {
+        padding-left: 250px;
+        text-align: left;
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: 15px 35px;
+      font-size: 14px;
+      margin: 0 auto;
+      width: auto;
+
+      @media screen and (max-width: 540px) {
+        padding: 15px 25px;
+      }
+    }
+
+  }
+
+  /* .billboard text ================ */
+  .billboard-txt {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include mq($from: tablet) {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      color: #FFF;
+    }
+    @include mq($from: desktop) {
+      top: 45%;
+    }
+    h1,
+    p {
+      font-family: $header-font-family;
+      max-width: 822px;
+      margin: auto;
+    }
+    p {
+      font-weight: 400;
+      padding: 10px 50px;
+      font-size: 14px;
+      margin-bottom: 17px;
+      @include mq($from: tablet) {
+        padding: 18px 50px;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.3);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+      }
+
+      @media #{$media-monitors-l} {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+      }
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 3px;
+      @include mq($from: tablet) {
+        font-size: 35px;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+      }
+
+    }
+
+  }
+
+  /* .billboard overlay ================ */
+  .billboard-overlay {
+    background: rgba(17, 15, 17, 0.8);
+    width: 100%;
+    color: #fff;
+    transform: translate(0, 0);
+    max-height: 100%;
+    border-color: #FFF;
+    border-style: solid;
+    border-width: 0;
+    height: auto;
+    @include mq($from: desktop) {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 120px;
+    }
+
+    .overlay-content .container {
+      padding: 25px 0;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 800;
+      border-bottom: 2px solid #FFF;
+      padding-bottom: 13px;
+      strong {
+        float: left;
+        font-size: 55px;
+        padding-top: 4px;
+        padding-right: 8px;
+        padding-left: 3px;
+        margin-top: 7px;
+
+        @media screen and (max-width: 640px) {
+          margin-bottom: 40px;
+        }
+      }
+
+    }
+
+    .sell-thumbnail {
+      display: none;
+      @include mq($from: mobile-landscape) {
+        position: absolute;
+        left: 15px;
+        bottom: 10px;
+        display: block;
+      }
+    }
+
+    .button {
+      position: relative;
+      font-size: 14px;
+      padding: 11px 35px;
+      margin: 8px 50px 0 0;
+      float: right;
+      &:after {
+        content: "";
+        position: absolute;
+        right: -50px;
+        top: 0;
+        display: inline-block;
+        background: url("#{$img-path}sprite.png") no-repeat;
+        background-position: -89px -11px;
+        width: 46px;
+        height: 36px;
+      }
+
+      @media screen and (max-width: 540px) {
+        padding: 6px 20px;
+      }
+    }
+  }
+}
+
+.bordered-title {
+  h1,
+  h2,
+  h3,
+  h4 {
+    border-left-width: 5px;
+    border-left-color: $primary-color;
+    border-left-style: solid;
+    padding-left: 17px;
+    padding-bottom: 0;
+    font-weight: $global-normal-weight;
+    font-size: 30px;
+  }
+}
+
+/* nav-carousel =================== */
+
+.nav-carousel {
+  padding: 11px 40px 5px;
+  background: #747270;
+  @include mq($from: mobile-landscape) {
+    padding: 15px 10px 18px;
+  }
+  .holder {
+    padding-left: $global-gutter-width;
+    padding-right: $global-gutter-width;
+  }
+  &.dark {
+    background: #747270;
+    a {
+      color: foreground(#747270);
+    }
+  }
+  &.black {
+    background: #000;
+    a {
+      color: foreground(#000);
+    }
+  }
+
+  ul {
+    > li {
+      display: none;
+      &:first-of-type {
+        display: block;
+      }
+    }
+  }
+
+  a {
+    font-family: $body-font-family;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 300;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+
+  .slick-slide {
+    text-align: center;
+    font-family: $body-font-family;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 300;
+  }
+
+  .slick-slide,
+  a:hover,
+  a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #FFF;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    top: 8px;
+
+    transform: translate(0, -50%);
+    background: url("#{$img-path}sprite.png") no-repeat;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    outline: none;
+    z-index: 10;
+    left: -40px;
+    @include mq($from: mobile-landscape) {
+      left: 0;
+    }
+  }
+
+  .slick-arrow:hover {
+    opacity: 0.6;
+  }
+
+  .slick-prev {
+    background-position: -12px -71px;
+  }
+
+  .slick-next {
+    left: auto;
+    right: -40px;
+    @include mq($from: mobile-landscape) {
+      left: auto;
+      right: 0;
+    }
+    background-position: -38px -71px;
+  }
+}
+
+.calltoaction-section {
+  background: #FFF;
+  .holder {
+    text-align: center;
+  }
+  .button {
+    display: inline-block;
+    margin-right: 10px;
+    @include mq($from: tablet, $until: desktop) {
+      padding: 20px 41px;
+    }
+    @include mq($until: tablet) {
+      margin-bottom: 10px;
+      padding: 20px 10px;
+    }
+    @include mq($until: mobile) {
+      width: 100%;
+    }
+  }
+}
+
+.trusted-agent {
+  border-top: 2px solid #eaeaea;
+  h2,
+  h3,
+  h4 {
+    font-weight: 300;
+    margin-bottom: 10px;
+    .page-template-template-sst_real_estate & {
+      font-size: 34px;
+      font-family: $header-font-family;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding-bottom: 22px;
+      color: inherit;
+    }
+  }
+}
+
+/*top-areas ====================*/
+.top-areas {
+  background-color: #f7f7f7;
+  border-top: 2px solid #e6e6e6;
+  padding: 40px 0;
+  h2,
+  h3,
+  h4 {
+    font-weight: 300;
+    margin-bottom: 31px;
+  }
+  .content {
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    margin: 0;
+    padding: 35px 30px;
+  }
+
+  .area-content {
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .area-content li {
+    position: relative;
+    border: 1px solid #E8E5E5;
+    width: calc(100% - 6px);
+    @include mq($from: mobile, $until: desktop) {
+      width: calc(50% - 6px);
+    }
+    @include mq($from: desktop) {
+      width: calc(25% - 6px);
+    }
+    margin: 2px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 60px;
+
+    @media screen and (max-width: 640px) {
+      padding-right: 10px;
+    }
+
+    a {
+
+      text-decoration: none;
+
+      &:hover {
+        color: $theme-color;
+      }
+    }
+  }
+  .area-name,
+  .area-code {
+    display: inline-block;
+    font-size: 12px;
+    font-family: $body-font-family;
+    font-weight: 400;
+  }
+  .area-name {
+    color: $primary-color;
+  }
+  .area-code {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    background-color: $primary-color;
+    padding: 6px 15px;
+    color: #fff;
+  }
+
+  .area-code:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translate(0, -50%) rotate(45deg);
+    display: inline-block;
+    background-color: $primary-color;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+// top-areas ends
+
+

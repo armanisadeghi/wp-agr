@@ -1,0 +1,31 @@
+<?php
+/*
+ * Template Name: SST Full Width (No Title)
+ */
+get_header();
+while ( have_posts() ): the_post(); ?>
+	<div class="page-content fullpage">
+		<div class="editor-content">
+			<?php the_content(); ?>
+			<?php
+			$defaults = [
+				'before'           => '<p>' . __( 'Pages:' ),
+				'after'            => '</p>',
+				'link_before'      => '',
+				'link_after'       => '',
+				'next_or_number'   => 'number',
+				'separator'        => ' ',
+				'nextpagelink'     => __( 'Next page' ),
+				'previouspagelink' => __( 'Previous page' ),
+				'pagelink'         => '%',
+				'echo'             => 1
+			];
+
+			wp_link_pages( $defaults );
+			if ( comments_open() ):
+				comments_template();
+			endif; ?>
+		</div>
+	</div>
+<?php endwhile;
+get_footer(); ?>

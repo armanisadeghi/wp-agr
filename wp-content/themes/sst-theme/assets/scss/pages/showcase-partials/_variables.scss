@@ -1,0 +1,51 @@
+// TABLE OF CONTENT
+// 1. path variables
+// 2. global variables
+// 3. typo variables
+// 4. colors variables
+// 5. Media Query variables
+// 6. Menu variables
+
+// 1. PATH VARIABLES ===================
+$img-path: "../images/showcase-images/";
+$font-path: "../font/";
+
+// 2. GLOBAL VARIABLES ===================
+$row-width: 1109px;
+$global-gutter-width: 20px;
+$global-columns: 12;
+
+// 3. TYPO VARIABLES ===================
+$header-font-family: 'campton', sans-serif;
+$body-font-family: "Museo Sans", sans-serif;
+$icon-font: 'FontAwesome';
+
+// 4. COLORS VARIABLES ===================
+$theme-color: #72cedd !default;
+$black: #151515 !default;
+$gray: #767676 !default;
+$white: #ffffff !default;
+$alternative-bg: #f0f0f0;
+// 5. MEDIA QUERY VARIABLES ============================
+$media-monitors-xl: "only screen and (max-width: 1300px)";
+$media-monitors-l: "only screen and (max-width: 1110px)";
+$media-tabs-landscape: "only screen and (max-width: 900px)";
+$media-tabs-portrait: "only screen and (max-width: 800px)";
+$media-mobile-landscape: "only screen and (max-width: 640px)";
+$media-mobile-portrait: "only screen and (max-width: 480px)";
+
+$mq-breakpoints: (
+        mobile: 481px,
+        mobile-landscape: 640px,
+        tablet: 768px,
+        desktop: 993px,
+        wide: 1199px,
+        x-wide: 1300px
+);
+
+// 6. MENU VARIABLES ============================
+$nav-font-color: #FFF;
+$nav-font-color-hover: #bababa;
+$nav-font-color-active: $nav-font-color-hover;
+$nav-padding: 16px 10px;
+

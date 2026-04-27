@@ -1,0 +1,84 @@
+.faq {
+  width: 80%;
+  border: 1px solid #222;
+}
+
+.item .question {
+  padding: 15px;
+  background: #C0392B;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item .question h4 {
+  margin: 0;
+}
+
+.item .question .fa.fa-minus {
+  display: none;
+}
+
+.item.jquery-accordion-active .fa.fa-minus {
+  display: block;
+}
+
+.item.jquery-accordion-active .fa.fa-plus {
+  display: none;
+}
+
+.item .answer {
+  padding: 15px;
+  display: none;
+}
+
+
+/* akanksha add css */
+
+ .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e072"; /* "play" icon */
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
+	
+	.main-general-div{
+		    max-width: 100rem !important;
+    
+	}
+	
+	.panel-box-title {
+    margin: 0.5rem auto 0.5rem !important;
+	
+	}
+	
+	.panel-body-content{
+		font-size:14px !important;
+	}
+
+

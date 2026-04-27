@@ -1,0 +1,51 @@
+.column {
+  float: left;
+  padding-left: $global-gutter-width/2;
+  padding-right: $global-gutter-width/2;
+}
+
+//@for $i from 1 through $global-columns {
+//  .grid-mobile-#{$i} {
+//    margin-left: -#{$global-gutter-width/2};
+//    margin-right: -#{$global-gutter-width/2};
+//    .column {
+//      @include mq($from: mobile) {
+//        width: 100%/$i;
+//      }
+//    }
+//  }
+//}
+//
+//@for $i from 1 through $global-columns {
+//  .grid-tablet-#{$i} {
+//    margin-left: -#{$global-gutter-width/2};
+//    margin-right: -#{$global-gutter-width/2};
+//    .column {
+//      @include mq($from: tablet) {
+//        width: 100%/$i;
+//      }
+//    }
+//  }
+//}
+//
+//@for $i from 1 through $global-columns {
+//  .grid-desktop-#{$i} {
+//    margin-left: -#{$global-gutter-width/2};
+//    margin-right: -#{$global-gutter-width/2};
+//    .column {
+//      @include mq($from: desktop) {
+//        width: 100%/$i;
+//      }
+//    }
+//  }
+//}
+
+@mixin grid-block-responsive($columns, $mq) {
+  margin-left: -#{$global-gutter-width/2};
+  margin-right: -#{$global-gutter-width/2};
+  .column {
+    @include mq($from: $mq) {
+      width: 100%/$columns;
+    }
+  }
+}

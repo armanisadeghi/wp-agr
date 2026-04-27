@@ -1,0 +1,499 @@
+.three-section {
+  h1 {
+    margin-top: 30px !important;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+
+  .alignleft {
+    width: calc(59% + 10px);
+    margin-right: calc(2% - 10px);
+
+    @media #{$media-mobile-landscape} {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .alignright {
+    width: 37%;
+    margin-left: 2%;
+
+    @media #{$media-mobile-landscape} {
+      width: 100%;
+      margin: 25px 0 0;
+      text-align: center;
+    }
+  }
+
+  .logo-container {
+    background-color: $white;
+    margin: 30px 0 0;
+    padding: 25px 15px;
+
+    .holder {
+      padding-left: 75px;
+
+      @media screen and (max-width: 640px) {
+        padding-left: 0;
+      }
+    }
+
+    h2,
+    h3,
+    h4 {
+      color: $black;
+      font-size: 22px;
+      text-transform: uppercase;
+
+      &:after {
+        background-color: $theme-color;
+      }
+    }
+  }
+
+  .mandatory-text {
+    margin-bottom: 5px;
+    font-size: 10px;
+    color: $white;
+    text-align: right;
+  }
+
+  .gform_footer {
+    margin-top: 10px;
+  }
+
+  ul {
+    margin: 0 !important;
+  }
+}
+
+#order-form,
+.three-section {
+
+  .form-holder {
+    background-color: $theme-color;
+    padding: 35px 35px 25px;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin: 0 0 28px;
+    padding: 0 0 15px;
+    font-size: 22px;
+    color: $white;
+
+    &:after {
+      background-color: $white;
+    }
+
+    strong {
+      display: inline-block;
+    }
+  }
+
+  .gform_wrapper {
+    &.order-form_wrapper {
+      position: relative;
+
+      .gf_progressbar_title {
+        margin-bottom: 0;
+        padding-bottom: 10px;
+        font-family: $helvetica-roman;
+        font-size: 22px;
+        text-transform: uppercase;
+        &:after {
+          display: none;
+        }
+      }
+
+      .gf_progressbar_percentage {
+        background-color: darken($theme-color, 10%);
+        border-radius: 8px;
+        margin-bottom: 25px;
+        padding: 2px 8px;
+        font-size: 9px;
+        color: $white;
+      }
+
+      .gform_body {
+        ul {
+          width: 100%;
+          overflow: hidden;
+          padding-top: 10px;
+
+          &.gform_fields {
+            width: calc(100% + 40px);
+            padding: 0;
+            margin: 0 -20px !important;
+          }
+
+          li {
+            display: inline-block;
+            width: 50%;
+            padding: 0 20px;
+            margin: 0 0 20px 0;
+            float: left;
+
+            @media #{$media-mobile-landscape} {
+              width: 100%;
+            }
+
+            &[style="display: none;"] ~ li {
+              &:after {
+                display: none;
+              }
+            }
+
+            &.fullwidth {
+              margin-right: 0;
+
+              .ginput_complex {
+                span {
+                  &.name_first {
+                    padding-right: 20px;
+
+                    @media #{$media-mobile-landscape} {
+                      padding-right: 0;
+                    }
+                  }
+
+                  &.name_last {
+                    padding-left: 20px;
+
+                    @media #{$media-mobile-landscape} {
+                      padding-left: 0;
+                    }
+                  }
+                }
+              }
+
+              &.mandatory {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                width: auto !important;
+
+                p {
+                  margin: 0;
+                  font-size: 10px;
+                  color: $white;
+                }
+              }
+
+              &.toggle-content {
+                position: relative;
+                padding-bottom: 40px;
+                margin-bottom: 40px;
+
+                &:before,
+                &:after {
+                  content: "";
+                  position: absolute;
+                  bottom: 0;
+                  left: 50%;
+                  transform: translate(-50%, 0);
+                  display: inline-block;
+                }
+
+                &:before {
+                  bottom: -5px;
+                  transform: translate(-50%, 0) rotate(45deg);
+                  background: $theme-color;
+                  border: 1px solid $white;
+                  border-right: 0;
+                  border-left: 1px solid $white;
+                  border-bottom: 0;
+                  width: 10px;
+                  height: 10px;
+                  z-index: 10;
+                }
+
+                &:after {
+                  background: $white;
+                  width: calc(100% - 40px);
+                  height: 1px;
+                  z-index: 8;
+                }
+              }
+            }
+
+            &.gfield_html {
+              margin-bottom: 0;
+            }
+
+            .ginput_complex {
+              span {
+                display: inline-block;
+                width: 50%;
+                vertical-align: middle;
+                float: left;
+
+                @media #{$media-mobile-landscape} {
+                  width: 100%;
+                }
+
+                &.address_zip {
+                  width: 100%;
+                }
+
+                &:first-of-type {
+                  padding-right: 0;
+
+                  @media #{$media-mobile-landscape} {
+                    margin-bottom: 20px;
+                  }
+                }
+
+                &:last-of-type {
+                  padding-left: 0;
+                }
+              }
+
+              &.has_street {
+                &.has_state {
+                  &.has_zip {
+                    span {
+                      width: 33.33%;
+
+                      @media #{$media-mobile-landscape} {
+                        padding: 0 0 20px;
+                      }
+
+                      &:last-of-type {
+                        @media #{$media-mobile-landscape} {
+                          padding: 0;
+                        }
+                      }
+
+                      &.address_city {
+                        padding: 0 20px 20px;
+
+                        @media #{$media-mobile-landscape} {
+                          padding: 0 0 20px;
+                        }
+                      }
+
+                      @media #{$media-mobile-landscape} {
+                        width: 100%;
+                      }
+
+                      &.address_zip {
+                        width: 100%;
+                      }
+
+                      &:first-of-type {
+                        padding-right: 0;
+
+                        @media #{$media-mobile-landscape} {
+                          margin-bottom: 0;
+                        }
+                      }
+
+                      &:last-of-type {
+                        padding-left: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            input,
+            select {
+              display: inline-block;
+              border: 1px solid #DDD;
+              border-radius: 4px;
+              width: 100%;
+              height: 35px;
+              padding: 5px 10px;
+              margin: 0;
+              vertical-align: middle;
+              font-size: 16px;
+              color: $black;
+            }
+
+            textarea {
+              border: 1px solid #DDD;
+              border-radius: 4px;
+              width: 100%;
+              padding: 18px 10px;
+              font-size: 16px;
+              color: $black;
+            }
+
+            label {
+              display: none;
+            }
+
+            &.photoshoot-type,
+            &.gender-block,
+            .ginput_container_radio {
+              label {
+                display: inline-block;
+                width: 60px;
+                vertical-align: middle;
+                margin: 0;
+
+                @media #{$media-mobile-landscape} {
+                  width: auto;
+                }
+              }
+            }
+
+            &.photoshoot-type {
+              label {
+                width: 100%;
+                margin-bottom: 5px;
+                font-weight: bold;
+              }
+            }
+
+            &.gender-block {
+              width: 100%;
+
+              > label {
+                font-weight: bold;
+
+                @media #{$media-mobile-landscape} {
+                  width: 20%;
+                }
+              }
+            }
+
+            .ginput_container_radio {
+              display: inline-block;
+              vertical-align: middle;
+
+              @media #{$media-mobile-landscape} {
+                width: 80%;
+              }
+
+              input {
+                width: auto;
+              }
+
+              label {
+                margin-left: 6px;
+              }
+            }
+          }
+        }
+      }
+
+      .gform_footer,
+      .gform_page_footer {
+        margin: 15px 0 35px;
+
+        .gform_button,
+        .gform_previous_button,
+        .gform_next_button {
+          background: transparent;
+          border: 1px solid $white;
+          border-radius: 5px;
+          box-shadow: none;
+          max-width: 200px;
+          margin: 0;
+          padding: 10px 37px;
+          height: auto !important;
+          text-transform: uppercase;
+          color: $white;
+          text-shadow: none;
+          font-family: $body-font-family;
+          font-weight: 500;
+          font-size: 14px !important;
+          cursor: pointer;
+
+          &:hover {
+            background-color: transparentize($black, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  .mandatory-text {
+    width: 100%;
+    padding: 0 15px;
+    text-align: right;
+
+    p {
+      margin: 0;
+      font-size: 10px;
+      color: $white;
+    }
+  }
+
+  .gforms_confirmation_message,
+  .gform_confirmation_message {
+    color: $white !important;
+
+    ~ div.mandatory-text {
+      display: none;
+    }
+  }
+
+  .validation_error {
+    display: none;
+  }
+
+  .validation_message {
+    color: red;
+  }
+}
+
+.page-template-template-sst_lead_capture {
+  textarea {
+    height: 155px;
+  }
+  .mandatory-text {
+    padding: 0 5px !important;
+  }
+  .gallery {
+    br[style="clear: both"] {
+      display: none;
+    }
+
+    .gallery-item {
+      display: inline-block;
+      max-width: 20%;
+      margin: 10px;
+
+      @media screen and (max-width: 800px) {
+        max-width: 28%;
+      }
+
+      @media screen and (max-width: 480px) {
+        max-width: 40%;
+      }
+    }
+  }
+
+  .booking-form_wrapper {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+
+    .mandatory-text {
+      right: 0;
+
+      @media screen and (max-width: 640px) {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    .booking-form {
+      width: calc(100% + 20px);
+      margin-right: -10px;
+      margin-left: -10px;
+    }
+  }
+
+  .form-holder {
+    p {
+      color: $white;
+    }
+  }
+}

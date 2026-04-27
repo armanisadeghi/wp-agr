@@ -1,0 +1,651 @@
+<?php
+
+
+
+/**
+
+ * Loads necessary functionality needed for theme
+
+ *
+
+ * @package Moksha Design Studio
+
+ * @subpackage SST Theme
+
+ * @version 2.0.0
+
+ * @author  Moksha Design Studio <webmaster@mokshastudio.com>
+
+ */
+
+
+
+/**
+
+ * includes necessary libraries, post type, etc.
+
+ */
+
+require 'framework/index.php';
+
+
+
+/**
+
+ * requires necessatu functionality for IDX
+
+ */
+
+require 'inc/idx.php';
+
+
+
+/**
+
+ * @var string google map API
+
+ */
+
+//define( 'MAP_API', 'AIzaSyA0iRxvZEvJK0gBfTp-b0oB4pQMGstn5eU' );
+define( 'MAP_API', 'AIzaSyBIm5zB22YlNds8NVgkHIPTHEG_9Sa8AH4' );
+
+
+if ( ! isset( $content_width ) ) {
+
+	/**
+
+	 * @var int defines content width
+
+	 */
+
+	$content_width = 700;
+
+}
+
+
+
+/**
+
+ * Registering theme navigation, necessary theme supports
+
+ * @since 1.0.2
+
+ */
+
+function mok_theme_setup() {
+
+	add_theme_support( 'post-thumbnails' );
+
+	add_theme_support( 'woocommerce' );
+
+	add_theme_support( 'wc-product-gallery-zoom' );
+
+	add_theme_support( 'wc-product-gallery-lightbox' );
+
+	add_theme_support( 'wc-product-gallery-slider' );
+
+	add_theme_support( 'title-tag' );
+
+	add_theme_support( 'custom-header' );
+
+	add_theme_support( 'automatic-feed-links' );
+
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	add_theme_support( 'custom-logo', [
+
+		'height'      => 40,
+
+		'width'       => 125,
+
+		'flex-height' => true,
+
+		'flex-width'  => true,
+
+		'header-text' => [ 'site-title', 'site-description' ],
+
+	] );
+
+	register_nav_menus( [
+
+		'main-nav' => __( 'Main Navigation' ),
+
+	] );
+
+
+
+}
+
+
+
+add_action( 'after_setup_theme', 'mok_theme_setup' );
+
+
+
+/**
+
+ * Register custom fonts.
+
+ * @return string
+
+ * @since 1.0.0
+
+ */
+
+function mok_custom_fonts_url() {
+
+	$font_families = [
+
+		'Open Sans:400,300,600,700,800',
+
+		'Open Sans Condensed:300,700',
+
+		'Roboto Slab:100,300,400,700',
+
+		'Poppins:300,400,500,600,700'
+
+	];
+
+	if ( is_page_template( [ 'templates/template-sst_landing_page2.php' ] ) ):
+
+		array_push( $font_families, 'Montserrat:400,700' );
+
+	endif;
+
+	$query_args = [ 'family' => urlencode( implode( '|', $font_families ) ) ];
+
+	$fonts_url  = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+
+
+
+	return esc_url_raw( $fonts_url );
+
+}
+
+
+
+/**
+
+ * Add preconnect for Google Fonts.
+
+ *
+
+ * @param array $urls URLs to print for resource hints.
+
+ * @param string $relation_type The relation type the URLs are printed for, e.g. 'preconnect' or 'prerender'.
+
+ *
+
+ * @return array
+
+ * @since 1.0.0
+
+ */
+
+function mok_resource_hints( $urls, $relation_type ) {
+
+	if ( wp_style_is( 'mok-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+
+		$urls[] = [
+
+			'href' => 'https://fonts.gstatic.com',
+
+			'crossorigin',
+
+		];
+
+	}
+
+
+
+	return $urls;
+
+}
+
+
+
+add_filter( 'wp_resource_hints', 'mok_resource_hints', 10, 2 );
+
+
+
+/**
+
+ * Enqueue styles and scripts for theme
+
+ * @since 1.0.0
+
+ */
+
+function mok_enqueue_files() {
+
+	$sst_option        = get_option( 'sst_option' );
+
+	$location_template = is_array( $sst_option ) && array_key_exists( 'location-default-template', $sst_option ) ? $sst_option['location-default-template'] : 'location';
+
+	$is_prod           = file_exists( ABSPATH . '.debug' ) ? '' : '.min';
+
+	wp_enqueue_style( 'mok-fonts', mok_custom_fonts_url(), [], null );
+
+	if ( is_page_template( [ 'templates/template-sst_landing_page2.php' ] ) ):
+
+		wp_enqueue_style( 'sst-full-page', get_theme_file_uri( '/assets/css/jquery.fullPage.css' ), [ 'mok-fonts' ], null );
+
+	endif;
+
+	wp_register_style( 'sst-theme', get_theme_file_uri( '/assets/css/sst-theme' . $is_prod . '.css' ), [ 'mok-fonts' ] );
+
+	wp_register_style( 'sst-home8', get_theme_file_uri( '/assets/css/sst-home8' . $is_prod . '.css' ) );
+
+	wp_register_style( 'sst-home9', get_theme_file_uri( '/assets/css/sst-home9' . $is_prod . '.css' ) );
+
+	wp_register_style( 'sst-showcase', get_theme_file_uri( '/assets/css/sst-showcase-home' . $is_prod . '.css' ) );
+
+	wp_register_style( 'sst-location2', get_theme_file_uri( '/assets/css/sst-location2' . $is_prod . '.css' ) );
+
+	wp_register_style( 'sst-aboutus', get_theme_file_uri( '/assets/css/sst-aboutus.css' ) );
+
+	wp_register_style( 'sst-aboutus-min', get_theme_file_uri( '/assets/css/sst-aboutus' . $is_prod . '.css' ) );
+
+
+
+	if ( is_page_template( 'templates/template-sst_home8.php' ) ) {
+
+		wp_enqueue_style( 'sst-home8' );
+
+	}elseif ( is_page_template( 'templates/template-sst_about_us.php' ) ) {
+
+		if ( is_child_theme() ) {
+
+			$dep = ( apply_filters( 'sst_enqueue_parent_stylesheet', false ) ) ? [ 'sst-theme' ] : null;
+
+			wp_enqueue_style( 'sst-child', get_theme_file_uri( '/assets/css/style' . $is_prod . '.css' ), $dep );
+
+		} else {
+
+			wp_enqueue_style( 'sst-theme' );
+
+		}
+
+		wp_enqueue_style( 'sst-aboutus' );
+
+	} elseif ( is_page_template( [
+
+		'templates/template-sst_e-commercehome1.php',
+
+		'templates/template-sst-ambassador.php'
+
+	] ) ) {
+
+		wp_enqueue_style( 'sst-home9' );
+
+	} elseif ( is_page_template( [
+
+		'templates/template-sst-showcase-home1.php',
+
+		'templates/template-sst-showcase-home2.php',
+
+		'templates/template-sst-showcase-home3.php'
+
+	] ) ) {
+
+		wp_enqueue_style( 'sst-showcase' );
+
+	} elseif ( is_post_type_archive( 'location' ) && $location_template == 'location2' ) {
+
+		wp_enqueue_style( 'sst-location2' );
+
+	} else {
+
+		if ( is_child_theme() ) {
+
+			$dep = ( apply_filters( 'sst_enqueue_parent_stylesheet', false ) ) ? [ 'sst-theme' ] : null;
+
+			wp_enqueue_style( 'sst-child', get_theme_file_uri( '/assets/css/style' . $is_prod . '.css' ), $dep );
+
+		} else {
+
+			wp_enqueue_style( 'sst-theme' );
+
+		}
+
+	}
+
+
+
+	wp_register_script( 'plugins', get_theme_file_uri( '/assets/js/plugins' . $is_prod . '.js' ), [ 'jquery' ], '', true );
+
+	wp_localize_script( 'plugins', 'sstAPI', [
+
+		'home' => home_url()
+
+	] );
+
+	wp_register_script( 'sst-theme-js', get_theme_file_uri( '/assets/js/scripts' . $is_prod . '.js' ), [ 'plugins' ], '', true );
+
+	wp_localize_script( 'sst-theme-js', 'sstAjax', [
+
+		'ajaxurl'    => admin_url( 'admin-ajax.php' ),
+
+		'secret_sst' => wp_create_nonce( 'secret-nonce' )
+
+	] );
+
+	wp_enqueue_script( 'sst-theme-js' );
+
+	if ( is_page_template( [ 'templates/template-sst_landing_page2.php' ] ) ):
+
+		wp_register_script( 'full-page', get_theme_file_uri( '/assets/js/jquery.fullpage.min.js' ), [ 'plugins' ], '', true );
+
+		wp_register_script( 'landing-page', get_theme_file_uri( '/assets/js/landing-page' . $is_prod . '.js' ), [ 'full-page' ], '', true );
+
+		wp_enqueue_script( 'landing-page' );
+
+	endif;
+
+	
+
+	if ( is_page_template( [ 'templates/template-sst_about_us.php' ] ) ):
+
+		wp_register_script( 'modernizr', get_theme_file_uri( '/assets/js/modernizr.js' ), [ 'plugins' ], '', true );
+
+		wp_register_script( 'timeline', get_theme_file_uri( '/assets/js/timeline.js' ), [ 'plugins' ], '', true );
+
+		
+
+		wp_enqueue_script( 'modernizr' );
+
+		wp_enqueue_script( 'timeline' );
+
+	endif;
+
+	
+
+	if ( is_page_template( [
+
+		'templates/template-sst-showcase-home1.php',
+
+		'templates/template-sst-showcase-home2.php',
+
+		'templates/template-sst-showcase-home3.php'
+
+	] ) ):
+
+		wp_register_script( 'showcase', get_theme_file_uri( '/assets/js/showcase' . $is_prod . '.js' ), [ 'plugins' ], '', true );
+
+		wp_enqueue_script( 'showcase' );
+
+	endif;
+
+
+
+	gravity_form_enqueue_scripts( 11, true );
+
+}
+
+
+
+add_action( 'wp_enqueue_scripts', 'mok_enqueue_files', 20 );
+
+
+
+/**
+
+ * Add a pingback url auto-discovery header for singularly identifiable articles.
+
+ * @since 1.0.0
+
+ */
+
+function mok_pingback_header() {
+
+	if ( is_singular() && pings_open() ) {
+
+		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+
+	}
+
+}
+
+
+
+add_action( 'wp_head', 'mok_pingback_header' );
+
+
+
+/**
+
+ * Registers widget area for theme
+
+ * @since 1.0.2
+
+ */
+
+function mok_sidebars() {
+
+	register_sidebar( [
+
+		'name'          => __( 'Footer Left', '_mok' ),
+
+		'id'            => 'footer-qwl',
+
+		'before_widget' => '<div class="list">',
+
+		'after_widget'  => '</div>',
+
+		'before_title'  => '<span  class="footer-title">',
+
+		'after_title'   => '</span>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Footer Right', '_mok' ),
+
+		'id'            => 'footer-lower-right',
+
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+
+		'after_widget'  => '</div>',
+
+		'before_title'  => '<span class="footer-title">',
+
+		'after_title'   => '</span>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Footer Bottom', '_mok' ),
+
+		'id'            => 'footer-bottom',
+
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+
+		'after_widget'  => '</div>',
+
+		'before_title'  => '<span  class="footer-title">',
+
+		'after_title'   => '</span>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Podcast Sidebar', '_mok' ),
+
+		'id'            => 'podcast-sidebar',
+
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+
+		'after_widget'  => '</aside>',
+
+		'before_title'  => '<h4  class="widget-title">',
+
+		'after_title'   => '</h4>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Location Widget', '_mok' ),
+
+		'id'            => 'location-widget',
+
+		'before_widget' => '<aside class="widget widget-locations">',
+
+		'after_widget'  => '</aside>',
+
+		'before_title'  => '<h4 class="widget-title">',
+
+		'after_title'   => '</h4>'
+
+	] );
+
+	register_sidebar( [
+
+		'name'          => __( 'Location Search Widget', '_mok' ),
+
+		'id'            => 'location-search-widget',
+
+		'before_widget' => '<aside class="widget widget-locations-search">',
+
+		'after_widget'  => '</aside>',
+
+		'before_title'  => '<h4 class="widget-title">',
+
+		'after_title'   => '</h4>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'E-commerce Widget for SST E-commerce home 1 template', '_mok' ),
+
+		'id'            => 'e-commerce-widget',
+
+		'before_widget' => '<aside class="widget %2$s" id="%1$s">',
+
+		'after_widget'  => '</aside>',
+
+		'before_title'  => '<h4 class="widget-title">',
+
+		'after_title'   => '</h4>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Sidebar Widget', '_mok' ),
+
+		'id'            => 'sidebar-widget',
+
+		'before_widget' => '<aside class="widget %2$s" id="%1$s">',
+
+		'after_widget'  => '</aside>',
+
+		'before_title'  => '<h4 class="widget-title">',
+
+		'after_title'   => '</h4>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Header Widget', 'mok' ),
+
+		'id'            => 'header-widget',
+
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+
+		'after_widget'  => '</div>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Footer Bottom Social Media', '_mok' ),
+
+		'id'            => 'footer-bottom-social-media',
+
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+
+		'after_widget'  => '</div>',
+
+		'before_title'  => '<span  class="footer-title">',
+
+		'after_title'   => '</span>'
+
+	] );
+
+
+
+	register_sidebar( [
+
+		'name'          => __( 'Showcase Footer widget area', '_mok' ),
+
+		'id'            => 'showcase-footer',
+
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+
+		'after_widget'  => '</div>',
+
+		'before_title'  => '<span  class="footer-title">',
+
+		'after_title'   => '</span>'
+
+	] );
+
+
+
+}
+
+
+
+add_action( 'widgets_init', 'mok_sidebars' );
+
+//define ('YOAST_VIDEO_SITEMAP_BASENAME', 'vsvideo');
+
+
+
+
+
+/**
+
+ * Remove post author link on comments
+
+ * 
+
+ * @return string $author
+
+ */
+add_filter('gform_file_upload_mime_types', function($mimes, $form_id, $field){
+  error_log('GF mimes for form '.$form_id.' field '.$field->id.': '.json_encode($mimes));
+  return $mimes;
+}, 10, 3);
+
+add_filter('gform_file_accepted_mime_types', function($types, $file, $form_id, $field_id){
+  error_log("GF accepted types (form $form_id field $field_id) = $types; file=".$file['name']);
+  return $types;
+}, 10, 4);
+
+
+add_filter( 'get_comment_author_link', 'wpse218025_remove_comment_author_link', 10, 3 );
+add_filter( 'comment_notification_recipients', '__return_empty_array', PHP_INT_MAX );
+add_filter( 'comment_moderation_recipients',   '__return_empty_array', PHP_INT_MAX );

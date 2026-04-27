@@ -1,0 +1,21 @@
+@import "../helpers/_mq";
+@import "../helpers/slick";
+@import "../helpers/_mq";
+@import "../helpers/fontawesome";
+@import "../helpers/addtoany";
+@import "../helpers/csbwfs-pro";
+@import "../functions";
+@import "../global";
+// COMPONENTS =======================
+@import "../components/icons";
+// MODULES =======================
+@import "../modules/slimmenu";
+@import "../modules/footer";
+//page common
+@import "_page_common";
+//page components
+@import "page-components/_home8";
+//common bottom section
+@import "_bottom_sections";
+
+

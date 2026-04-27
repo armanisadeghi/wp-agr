@@ -1,0 +1,65 @@
+// TABLE OF CONTENT
+// 1. path variables
+// 2. global variables
+// 3. typo variables
+// 4. colors variables
+// 5. Media Query variables
+// 6. Menu variables
+
+// 1. PATH VARIABLES ===================
+$img-path: "../images/";
+$font-path: "../font/";
+
+// 2. GLOBAL VARIABLES ===================
+$row-width: 1109px;
+$global-gutter-width: 20px;
+$global-columns: 12;
+
+// 3. TYPO VARIABLES ===================
+$header-font-family: "Museo Sans", sans-serif;
+$body-font-family: "Museo Sans", sans-serif;
+$poppins-font-family: 'Poppins', sans-serif;
+$icon-font: 'FontAwesome';
+$liana: "Liana", sans-serif;
+$global-normal-weight: 400;
+$global-semibold-weight: 500;
+$global-medium-weight: 600;
+$global-bold-weight: 700;
+
+// 4. COLORS VARIABLES ===================
+$theme-color: #3998c9 !default;
+$theme-color-transparent7: rgba(57, 152, 201, 0.7);
+$theme-color--hover: #3082AD;
+$link-color: #00A6AD;
+$primary-color: $theme-color !default;
+$secondary-color: null !default;
+$theme-color-alt: #0e141e;
+$theme-color-alt--hover: #252525;
+$black: #000;
+$body-font-color: #9fa1a1;
+$white: #FFF;
+$theme-color-contrast: #FFF;
+
+// 5. MEDIA QUERY VARIABLES ============================
+$media-monitors-lx: "only screen and (max-width: 1450px)";
+$media-monitors-l: "only screen and (max-width: 1110px)";
+$media-tabs-landscape: "only screen and (max-width: 900px)";
+$media-tabs-portrait: "only screen and (max-width: 800px)";
+$media-mobile-landscape: "only screen and (max-width: 640px)";
+$media-mobile-portrait: "only screen and (max-width: 480px)";
+
+$mq-breakpoints: (
+    mobile: 481px,
+    mobile-landscape: 640px,
+    tablet: 768px,
+    desktop: 993px,
+    wide: 1199px,
+    wider: 1349px
+);
+
+// 6. MENU VARIABLES ============================
+$nav-font-color: #FFF;
+$nav-font-color-hover: #bababa;
+$nav-font-color-active: $nav-font-color-hover;
+$nav-padding: 16px 10px;
+

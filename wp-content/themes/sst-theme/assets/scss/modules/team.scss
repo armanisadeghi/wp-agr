@@ -1,0 +1,316 @@
+/* TEAM LISTING PAGE */
+body.page-template-template-sst_team,
+body.single-team {
+  .page-content.fullpage {
+    @include mq($until: tablet) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+body.page-template-template-sst_team {
+  #billboard h1:after,
+  #billboard h2:after {
+    display: none;
+
+  }
+  h1 {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-family: $body-font-family;
+    font-size: 80px;
+    color: #FFF;
+    z-index: 2;
+    font-weight: 900;
+    line-height: 0.69;
+    padding: 0;
+
+    strong {
+      display: block;
+      margin-left: 200px;
+      font-size: 111px;
+      margin-top: 10px;
+    }
+  }
+  #billboard {
+    .holder {
+      transform: none;
+      margin-top: 0;
+      position: relative;
+      left: auto;
+      top: auto;
+      display: none;
+      @include mq($from: tablet) {
+        display: block;
+      }
+    }
+    .image-container {
+      height: auto;
+    }
+  }
+  .pg-title {
+    margin-top: 0;
+  }
+}
+
+.team-wrapper {
+  @extend .communities;
+  h2,
+  h3 {
+    padding-bottom: 0;
+    margin-bottom: 12px;
+    font-weight: $global-bold-weight;
+    font-family: $body-font-family;
+    @include mq($until: mobile) {
+      margin-top: 0;
+    }
+    &:after {
+      display: none;
+    }
+  }
+  .detail {
+    margin-bottom: 0;
+    @include mq($until: mobile) {
+      overflow: initial;
+      padding-top: 0;
+    }
+  }
+  .team-designation,
+  span {
+    color: $primary-color;
+    display: block;
+    margin-bottom: 17px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: $body-font-family;
+  }
+  p {
+    font-family: $body-font-family;
+    color: #666666;
+    font-size: 13px;
+    @include mq($until: mobile) {
+      clear: both;
+    }
+  }
+
+  .button.link {
+    font-size: 13px;
+    font-family: $body-font-family;
+    color: $primary-color;
+    float: right;
+    text-transform: lowercase;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .img-wrapper {
+    @include mq($until: mobile) {
+      float: left;
+    }
+    @include mq($until: mobile-landscape) {
+      padding-right: 15px;
+    }
+    img {
+      display: block;
+      @include mq($until: mobile) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    a {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: $primary-color;
+      width: 141px;
+      height: 141px;
+      @include mq($until: mobile) {
+        //display: table;
+        //margin: auto;
+        width: 100px;
+        height: 100px;
+
+      }
+    }
+  }
+
+  &.franchise-team-section {
+    h2,
+    h3,
+    h4 {
+      padding-bottom: 15px;
+      margin-bottom: 28px;
+      font-size: 28px;
+      font-weight: 100;
+      text-align: center;
+      &:after {
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+      }
+    }
+
+    .col-inner {
+      background-color: transparent;
+    }
+
+    .detail-footer {
+      h2,
+      h3,
+      h4 {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* TEAM DETAIL PAGE */
+body.single-team {
+  background: #FFF;
+  .team-single-header {
+    background: #231f20;
+    position: relative;
+    @include mq($until: tablet) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &:after {
+      position: absolute;
+      background-image: url("#{$img-path}icon-square-tilted.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      content: '';
+      left: 50%;
+      bottom: 0;
+      -webkit-transform: translate(-50%, 50%);
+      -moz-transform: translate(-50%, 50%);
+      -ms-transform: translate(-50%, 50%);
+      -o-transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
+    }
+    .img-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 141px;
+      height: 141px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 30px;
+      background: $primary-color;
+      -webkit-box-shadow: 5px 5px 3px #1a1718;
+      -moz-box-shadow: 5px 5px 3px #1a1718;
+      box-shadow: 5px 5px 3px #1a1718;
+    }
+  }
+  .pg-title {
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: 44px;
+    color: #FFF;
+    font-weight: 700;
+    margin-bottom: 11px;
+    padding: 0;
+    font-family: $body-font-family;
+    &:after {
+      display: none;
+    }
+  }
+  .team-designation {
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 24px;
+  }
+  .editor-content {
+    blockquote {
+      text-align: center;
+      max-width: 684px;
+      margin: auto;
+      background-image: url("#{$img-path}icon-quote-grey.png");
+      background-repeat: no-repeat;
+      background-position: top center;
+      padding-top: 37px;
+      margin-bottom: 37px;
+      p {
+        color: $primary-color;
+        font-weight: 300;
+        font-size: 18px;
+      }
+    }
+    > p {
+      font-size: 13px;
+    }
+    &.multi-column {
+      @include mq($from: tablet) {
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+        -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+        -moz-column-gap: 40px; /* Firefox */
+        column-gap: 40px;
+      }
+
+      @include mq($from: desktop) {
+        -webkit-column-gap: 87px; /* Chrome, Safari, Opera */
+        -moz-column-gap: 87px; /* Firefox */
+        column-gap: 87px;
+      }
+    }
+  }
+}
+
+.team-additional-info {
+  padding-top: 15px;
+
+  .team-container {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+
+    img.alignleft {
+      margin-right: 15px;
+    }
+
+    img.alignright {
+      margin-left: 15px;
+    }
+
+    .header-container {
+      overflow: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .content-container {
+      line-height: 1.5;
+      padding-bottom: 25px;
+    }
+  }
+}
+
+body.single {
+  .team-single-header {
+    h1,
+    h2 {
+      background: transparent;
+      padding: 0;
+      color: $white;
+    }
+  }
+}

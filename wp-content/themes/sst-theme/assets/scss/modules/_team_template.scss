@@ -1,0 +1,1014 @@
+$bg-theme-bright: #d9d0d9;
+$bg-theme-light-red: #FF1249;
+$bg-theme-light-purple: #820982;
+$bg-theme-light-yellow: #FFFF00;
+
+.page-template-template-sst_team_template {
+  .team_template-wrapper {
+    padding-bottom: 0;
+  }
+
+  #page-footer {
+    margin-top: 0;
+  }
+}
+
+.team-teaser-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-teaser {
+  background-color: $bg-theme-bright;
+  padding: 50px 10px;
+  text-align: center;
+
+  .contact-info {
+    margin-top: 0;
+    font-size: 19px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .contact-phone {
+    display: block;
+    font-size: 35px;
+  }
+
+  .button {
+    border-radius: 0;
+    margin: 0 10px 10px;
+  }
+}
+
+.team-teaser {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary-color;
+  padding: 15px;
+  margin-bottom: 30px;
+  flex-grow: 1;
+  transition: 0.3s;
+
+  @media all and (min-width: 640px) {
+    padding: 50px;
+  }
+
+  &:hover {
+    box-shadow: 1px 0 9px 3px #999;
+    cursor: pointer;
+  }
+
+  .team-featured-image,
+  .content,
+  .team-short-list {
+    flex-grow: 1;
+  }
+
+  .team-short-list {
+    width: 100%;
+    max-width: 100%;
+    min-height: 5px;
+
+    @media all and (min-width: 940px) {
+      width: 210px;
+      max-width: 23%;
+      padding-left: 8px;
+    }
+
+    li,
+    p,
+    span,
+    strong,
+    small,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: #FFF;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      background-color: rgba(0, 0, 0, 0.3);
+      max-width: 100%;
+      padding: 0 15px 30px;
+      margin: 0;
+      list-style: none;
+
+      @media all and (min-width: 940px) {
+        position: absolute;
+        top: 0;
+        width: 220px;
+        max-width: 100%;
+      }
+
+      &:after {
+        @media all and (min-width: 940px) {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          display: inline-block;
+          background-color: transparent;
+          border-top: 30px solid rgba(0, 0, 0, 0.3);
+          border-right: 110px solid transparent;
+          border-left: 110px solid transparent;
+          border-bottom: 0;
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+
+    figure {
+      display: inline-block;
+      padding-right: 10px;
+    }
+
+    .item-content {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .item-title {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: calc(100% + 30px);
+    margin: 25px 0 15px -15px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+  }
+
+  .team-featured-image {
+    width: 100%;
+    max-width: 100%;
+
+    @media all and (min-width: 640px) {
+      max-width: 50%;
+    }
+
+    @media all and (min-width: 940px) {
+      max-width: 23%;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 20px;
+
+      @media all and (min-width: 640px) {
+        margin: 0;
+      }
+    }
+  }
+  .content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+
+    @media all and (min-width: 640px) {
+      max-width: 50%;
+    }
+
+    @media all and (min-width: 940px) {
+      max-width: 54%;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 40px;
+      text-transform: uppercase;
+      color: #FFF;
+      font-weight: 700;
+
+      @media all and (min-width: 640px) {
+        font-size: 52px;
+      }
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    &:after {
+      display: none;
+    }
+  }
+
+  .team-tag {
+    position: relative;
+    display: inline-block;
+    background-color: #FFF;
+    border-radius: 20px;
+    padding: 12px 20px;
+    color: $primary-color;
+    font-size: 12px;
+    font-weight: 700;
+
+    @media all and (min-width: 640px) {
+      font-size: 18px;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      border-top: 2px solid #FFF;
+      width: 25px;
+
+      @media all and (min-width: 940px) {
+        width: 58px;
+      }
+    }
+
+    &:before {
+      left: -30px;
+
+      @media all and (min-width: 940px) {
+        left: -65px;
+      }
+    }
+
+    &:after {
+      right: -30px;
+
+      @media all and (min-width: 940px) {
+        right: -65px;
+      }
+    }
+  }
+
+  .button {
+    margin-top: 30px;
+  }
+
+  .content {
+    .detail {
+      font-size: 22px;
+      color: #FFF;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+  }
+
+  //Layout Square styling
+  &.layout-square {
+    max-width: 100%;
+    padding-top: 35px;
+    padding-bottom: 0;
+
+    @media all and (min-width: 900px) {
+      max-width: calc(50% - 15px);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding-bottom: 12px;
+    }
+
+    .team-short-list {
+      position: relative;
+      @media all and (min-width: 940px) {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        margin-top: 40px;
+      }
+
+      &:before {
+        @media all and (min-width: 940px) {
+          content: "";
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          display: inline-block;
+          background-color: transparent;
+          border-top: 0;
+          border-bottom: 45px solid rgba(0, 0, 0, 0.3);
+          border-right: 170px solid transparent;
+          border-left: 170px solid transparent;
+          width: 0;
+          height: 0;
+
+          @media all and (min-width: 1000px) {
+            border-right: 190px solid transparent;
+            border-left: 190px solid transparent;
+          }
+
+          @media all and (min-width: 1100px) {
+            border-right: 220px solid transparent;
+            border-left: 220px solid transparent;
+          }
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 20px;
+
+        @media all and (min-width: 940px) {
+          position: relative;
+        }
+
+        &:after {
+          display: none;
+        }
+      }
+
+      .item {
+        width: 100%;
+        padding: 15px;
+
+        @media all and (min-width: 440px) {
+          width: 50%;
+        }
+      }
+
+      .item-title {
+        background-color: transparent;
+        border-bottom: 1px dashed #FFF;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+      }
+    }
+
+    .content {
+      @media all and (min-width: 640px) {
+        max-width: 100%;
+      }
+
+      @media all and (min-width: 940px) {
+        max-width: 100%;
+      }
+
+      .title {
+        position: relative;
+
+        &:before,
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 40%;
+          transform: translate(0, -50%);
+          background-color: transparent;
+          border-top: 2px solid #FFF;
+          width: 25px;
+
+          @media all and (min-width: 940px) {
+            width: 40px;
+          }
+
+          @media all and (min-width: 1200px) {
+            width: 58px;
+          }
+        }
+
+        &:before {
+          right: calc(100% - 10px);
+          @media all and (min-width: 1200px) {
+            right: calc(100% - 38px);
+          }
+        }
+
+        &:after {
+          left: calc(100% - 10px);
+          @media all and (min-width: 1200px) {
+            left: calc(100% - 38px);
+          }
+        }
+      }
+    }
+
+    .detail {
+      padding-top: 10px;
+      font-size: 18px;
+    }
+
+    .team-featured-image {
+      margin-bottom: 20px;
+      @media all and (min-width: 640px) {
+        max-width: 100%;
+      }
+
+      @media all and (min-width: 940px) {
+        max-width: 100%;
+      }
+      img {
+        @media all and (min-width: 640px) {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .button {
+      margin-top: 15px;
+      margin-bottom: 40px;
+    }
+  }
+
+  //Bright bg styling
+  &.dark-text,
+  &.bg-bright,
+  &.bg-yellow {
+    .content {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #000;
+      }
+
+      .detail {
+        color: #000;
+      }
+      .title {
+        &:before,
+        &:after {
+          border-top-color: #000;
+        }
+      }
+    }
+
+    .team-tag {
+      background-color: #000;
+      color: #FFF;
+
+      &:before,
+      &:after {
+        border-top-color: #000;
+      }
+    }
+
+    .button {
+      border-color: #000;
+      color: #000;
+    }
+  }
+
+  &.bg-bright {
+    background-color: $bg-theme-bright;
+
+    .team-short-list {
+      ul {
+        background-color: darken($bg-theme-bright, 15%);
+
+        &:after {
+          border-top-color: darken($bg-theme-bright, 15%);
+        }
+      }
+    }
+    .item-title {
+      background-color: darken($bg-theme-bright, 25%);
+    }
+
+    &.layout-square {
+      .team-short-list {
+        &:before {
+          border-bottom-color: darken($bg-theme-bright, 15%);
+        }
+      }
+    }
+  }
+
+  &.bg-red {
+    background-color: $bg-theme-light-red;
+    .team-short-list {
+      ul {
+        background-color: darken($bg-theme-light-red, 15%);
+
+        &:after {
+          border-top-color: darken($bg-theme-light-red, 15%);
+        }
+      }
+    }
+    .item-title {
+      background-color: darken($bg-theme-light-red, 25%);
+    }
+
+    .team-tag {
+      color: $bg-theme-light-red;
+    }
+
+    &.layout-square {
+      .team-short-list {
+        &:before {
+          border-bottom-color: darken($bg-theme-light-red, 15%);
+        }
+      }
+    }
+  }
+
+  &.bg-purple {
+    background-color: $bg-theme-light-purple;
+    .team-short-list {
+      ul {
+        background-color: darken($bg-theme-light-purple, 15%);
+
+        &:after {
+          border-top-color: darken($bg-theme-light-purple, 15%);
+        }
+      }
+    }
+    .item-title {
+      background-color: darken($bg-theme-light-purple, 25%);
+    }
+
+    .team-tag {
+      color: $bg-theme-light-purple;
+    }
+
+    &.layout-square {
+      .team-short-list {
+        &:before {
+          border-bottom-color: darken($bg-theme-light-purple, 15%);
+        }
+      }
+    }
+  }
+
+  &.bg-yellow {
+    background-color: $bg-theme-light-yellow;
+    .team-short-list {
+      ul {
+        background-color: darken($bg-theme-light-yellow, 15%);
+
+        &:after {
+          border-top-color: darken($bg-theme-light-yellow, 15%);
+        }
+      }
+    }
+    .item-title {
+      background-color: darken($bg-theme-light-yellow, 25%);
+    }
+
+    .team-tag {
+      color: $bg-theme-light-yellow;
+    }
+
+    &.layout-square {
+      .team-short-list {
+        &:before {
+          border-bottom-color: darken($bg-theme-light-yellow, 15%);
+        }
+      }
+    }
+  }
+
+  &.inner {
+    background-color: transparentize($black, 0.9);
+    padding: 10px;
+    @media all and (min-width: 640px) {
+      padding: 20px;
+    }
+
+    @media all and (min-width: 1200px) {
+      padding: 20px 20px 50px;
+    }
+
+    &:hover {
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .btn-group {
+      text-align: center;
+
+      @media all and (min-width: 1200px) {
+        margin-bottom: -80px;
+      }
+    }
+
+    .button {
+      margin-top: 12px;
+    }
+  }
+
+  .teaser-detail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 25px;
+
+    @media all and (min-width: 580px) {
+      width: 45%;
+      max-width: 45%;
+      margin-bottom: 0;
+    }
+
+    + .team-short-list {
+      width: 100%;
+
+      @media all and (min-width: 580px) {
+        width: 55%;
+        max-width: 55%;
+      }
+
+      ul {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        background: transparent;
+        width: 100%;
+        margin: 0;
+
+        &:after {
+          display: none;
+        }
+
+        figure,
+        span {
+          display: inline-block;
+          width: 100%;
+        }
+
+        figure {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          border: 2px solid $white;
+          width: 55px;
+          height: 55px;
+          padding: 0;
+          margin-bottom: 10px;
+          overflow: hidden;
+        }
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      li {
+        width: 33.33%;
+        padding: 0 12px;
+      }
+
+      .item-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+
+        .name-holder {
+          font-weight: 300;
+          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 1.5;
+          color: $black;
+
+          @media all and (min-width: 1200px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    > div,
+    .team-featured-image,
+    .content {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .team-featured-image {
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    .team-tag {
+      background-color: $black;
+      padding: 3px 12px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.3;
+      color: $white;
+
+      &:before,
+      &:after {
+        width: 35px;
+        border-width: 1px;
+        border-color: $black;
+      }
+
+      &:before {
+        left: -40px;
+      }
+
+      &:after {
+        right: -40px;
+      }
+    }
+
+    .detail {
+      font-size: 12px;
+      font-weight: 400;
+      color: $black;
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: $black;
+      }
+    }
+  }
+}
+
+.team-detail-wrapper {
+  .team_template-wrapper {
+    padding-bottom: 0;
+  }
+
+  #billboard {
+    background-size: cover;
+
+    @media all and (min-width: 601px) {
+      padding-top: 60px;
+    }
+
+    .holder {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      > div {
+        margin: 0;
+        max-width: 100%;
+        &:first-of-type {
+          width: 100%;
+
+          @media all and (min-width: 840px) {
+            width: 30%;
+          }
+        }
+
+        &:last-of-type {
+          width: 100%;
+          @media all and (min-width: 840px) {
+            width: 70%;
+          }
+        }
+      }
+    }
+    .image-container {
+      background: transparent;
+      img {
+        display: none;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+
+        @media all and (min-width: 840px) {
+          display: block;
+        }
+      }
+    }
+
+    .billboard-content {
+      background: transparent;
+      text-align: left;
+
+      @media all and (min-width: 840px) {
+        padding-left: 70px;
+      }
+
+      &:before,
+      &:after {
+        display: none;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        list-style: none;
+        margin: 20px 0;
+        padding: 0 5px;
+      }
+
+      li {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .team-short-list {
+        ul {
+          margin: 0 0 12px;
+        }
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .page-excerpt {
+    background: $black;
+    padding: 50px 10px;
+    color: $white;
+    text-align: center;
+    font-size: 23px;
+    line-height: 1.5;
+
+    @media all and (max-width: 600px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .list-item {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid lighten($black, 80%);
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover {
+      .list-header {
+        h1,
+        h2,
+        h3,
+        h4 {
+          &:after {
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+
+    figure {
+      position: relative;
+      border-radius: 50%;
+      background-color: transparentize($black, 0.9);
+      width: 220px;
+      height: 220px;
+      overflow: hidden;
+
+      @media all and (max-width: 580px) {
+        margin: 0 auto;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        margin: auto;
+      }
+    }
+
+    .list-detail {
+      width: calc(100% - 220px);
+      padding: 15px 15px 15px 50px;
+
+      @media all and (max-width: 580px) {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+
+    .list-header {
+      @media all and (max-width: 580px) {
+        text-align: center;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        font-size: 34px;
+        color: $primary-color;
+
+        &:after {
+          background-color: lighten($black, 70%);
+          width: 50px;
+          height: 2px;
+          transition: 0.3s;
+
+          @media all and (max-width: 580px) {
+            left: 50%;
+            transform: translate(-50%, 0);
+          }
+        }
+
+        &:hover {
+          &:after {
+            background-color: $primary-color;
+          }
+        }
+
+        a {
+          font-size: 34px;
+          color: $primary-color;
+          transition: 0.3s;
+
+          &:hover {
+            color: darken($primary-color, 15%);
+          }
+        }
+
+        small,
+        strong,
+        em {
+          display: block;
+          font-size: 18px;
+          color: lighten($black, 70%);
+        }
+      }
+    }
+
+    .list-para {
+      font-size: 20px;
+      color: lighten($black, 35%);
+      font-weight: 500;
+
+      @media all and (max-width: 580px) {
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        color: lighten($black, 35%);
+        font-weight: 500;
+
+        @media all and (max-width: 580px) {
+          text-align: center;
+        }
+      }
+    }
+
+    &.even {
+      figure {
+        order: 1;
+
+        @media all and (max-width: 580px) {
+          order: -1;
+        }
+      }
+
+      .list-detail {
+        padding: 15px 50px 15px 15px;
+      }
+    }
+  }
+}
+
+.btn-group-lg {
+  padding: 0 10px 60px;
+  text-align: center;
+
+  .button {
+    margin: 15px 0;
+
+    &.btn-lg {
+      padding: 25px 50px;
+      font-size: 20px;
+    }
+  }
+}

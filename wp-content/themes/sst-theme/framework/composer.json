@@ -1,0 +1,46 @@
+{
+  "name": "moksha/titanium",
+  "description": "Moksha WordPress Framework for Titanium Projects",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Sachit Tandukar",
+      "email": "sachit@mokshastudio.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "vendor/cmb2/init.php",
+      "vendor/cmb2-post-search-field/cmb2_post_search_field.php",
+      "vendor/redux-framework/ReduxCore/framework.php",
+      "config/index.php",
+      "helpers/index.php",
+      "hooks/index.php",
+      "filters/index.php",
+      "widgets/index.php",
+      "library/cmb-field-select2/cmb-field-select2.php"
+    ],
+    "psr-4": {
+      "Moksha\\Core\\": "core"
+    }
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "webdevstudios/cmb2": "2.*",
+    "icanboogie/inflector": "1.*",
+    "redux-framework/redux-framework": "*",
+    "webdevstudios/cmb2-post-search-field": "0.*",
+    "htmlburger/carbon-fields": "2.*"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": [
+        "webdevstudios/cmb2",
+        "redux-framework/redux-framework",
+        "webdevstudios/cmb2-post-search-field",
+        "htmlburger/carbon-fields"
+      ]
+    }
+  }
+}

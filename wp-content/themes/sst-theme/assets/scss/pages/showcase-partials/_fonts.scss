@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'campton';
+  src: url('#{$font-path}campton-light-webfont.eot');
+  src: url('#{$font-path}campton-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}campton-light-webfont.woff2') format('woff2'),
+  url('#{$font-path}campton-light-webfont.woff') format('woff'),
+  url('#{$font-path}campton-light-webfont.ttf') format('truetype'),
+  url('#{$font-path}campton-light-webfont.svg#campton') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'campton';
+  src: url('#{$font-path}campton-book-webfont.eot');
+  src: url('#{$font-path}campton-book-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}campton-book-webfont.woff2') format('woff2'),
+  url('#{$font-path}campton-book-webfont.woff') format('woff'),
+  url('#{$font-path}campton-book-webfont.ttf') format('truetype'),
+  url('#{$font-path}campton-book-webfont.svg#campton') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'campton';
+  src: url('#{$font-path}campton-medium-webfont.eot');
+  src: url('#{$font-path}campton-medium-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}campton-medium-webfont.woff2') format('woff2'),
+  url('#{$font-path}campton-medium-webfont.woff') format('woff'),
+  url('#{$font-path}campton-medium-webfont.ttf') format('truetype'),
+  url('#{$font-path}campton-medium-webfont.svg#campton') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'campton';
+  src: url('#{$font-path}campton-semibold-webfont.eot');
+  src: url('#{$font-path}campton-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}campton-semibold-webfont.woff2') format('woff2'),
+  url('#{$font-path}campton-semibold-webfont.woff') format('woff'),
+  url('#{$font-path}campton-semibold-webfont.ttf') format('truetype'),
+  url('#{$font-path}campton-semibold-webfont.svg#campton') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'campton';
+  src: url('#{$font-path}campton-bold-webfont.eot');
+  src: url('#{$font-path}campton-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}campton-bold-webfont.woff2') format('woff2'),
+  url('#{$font-path}campton-bold-webfont.woff') format('woff'),
+  url('#{$font-path}campton-bold-webfont.ttf') format('truetype'),
+  url('#{$font-path}campton-bold-webfont.svg#campton') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('#{$font-path}museosans-300-webfont.eot');
+  src: url('#{$font-path}museosans-300-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}museosans-300-webfont.woff2') format('woff2'),
+  url('#{$font-path}museosans-300-webfont.woff') format('woff'),
+  url('#{$font-path}museosans-300-webfont.ttf') format('truetype'),
+  url('#{$font-path}museosans-300-webfont.svg#Museo Sans') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('#{$font-path}museosans-300italic-webfont.eot');
+  src: url('#{$font-path}museosans-300italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}museosans-300italic-webfont.woff2') format('woff2'),
+  url('#{$font-path}museosans-300italic-webfont.woff') format('woff'),
+  url('#{$font-path}museosans-300italic-webfont.ttf') format('truetype'),
+  url('#{$font-path}museosans-300italic-webfont.svg#Museo Sans') format('svg');
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('#{$font-path}museosans_500-webfont.eot');
+  src: url('#{$font-path}museosans_500-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}museosans_500-webfont.woff2') format('woff2'),
+  url('#{$font-path}museosans_500-webfont.woff') format('woff'),
+  url('#{$font-path}museosans_500-webfont.ttf') format('truetype'),
+  url('#{$font-path}museosans_500-webfont.svg#Museo Sans') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('#{$font-path}museosans700-webfont.eot');
+  src: url('#{$font-path}museosans700-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}museosans700-webfont.woff2') format('woff2'),
+  url('#{$font-path}museosans700-webfont.woff') format('woff'),
+  url('#{$font-path}museosans700-webfont.ttf') format('truetype'),
+  url('#{$font-path}museosans700-webfont.svg#museo_sans_cyrl700') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('#{$font-path}museosanscyrl_3-webfont.eot');
+  src: url('#{$font-path}museosanscyrl_3-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}museosanscyrl_3-webfont.woff2') format('woff2'),
+  url('#{$font-path}museosanscyrl_3-webfont.woff') format('woff'),
+  url('#{$font-path}museosanscyrl_3-webfont.ttf') format('truetype'),
+  url('#{$font-path}museosanscyrl_3-webfont.svg#Museo Sans') format('svg');
+  font-weight: 900;
+  font-style: normal;
+
+}

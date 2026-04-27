@@ -1,0 +1,245 @@
+//added for contact 2=====================
+body.page-template-template-sst_contact-2,
+body.page-template-template-sst_location {
+  h1 {
+    font-size: 22px;
+    @include mq($from: mobile) {
+      font-size: 30px;
+    }
+
+    @include mq($from: tablet) {
+      font-size: 68px;
+    }
+    font-family: $body-font-family;
+    color: #FFF;
+    font-weight: 800;
+    text-align: center;
+    padding-bottom: 27px;
+    margin-bottom: 34px;
+    text-transform: uppercase;
+    &:after {
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: #FFF;
+    }
+  }
+  .pg-title {
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 25px;
+    color: $white;
+    text-transform: uppercase;
+
+    &:after {
+      background-color: $white;
+    }
+  }
+
+  .editor-content {
+    h2 {
+      color: $black;
+      &:after {
+        background-color: $theme-color;
+      }
+    }
+  }
+}
+
+.contact-container {
+  position: relative;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding: 65px 15px;
+  background-repeat: no-repeat;
+  .page-template-template-sst_location & {
+    text-align: center;
+    padding-top: 116px;
+    padding-bottom: 83px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($theme-color, 0.8);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .holder {
+    z-index: 1;
+  }
+
+  .contact-info {
+    margin-top: 0;
+  }
+}
+
+body.page-template-template-sst_contact-2 {
+  .contact-container {
+    padding-top: calc(50px + 45px);
+    padding-bottom: 40px;
+  }
+
+  .editor-content {
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    strong,
+    a,
+    span {
+      color: $white;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5 {
+      &:after {
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: $white;
+      }
+    }
+
+    a {
+      color: transparentize($white, 0.1);
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .page-content {
+    &.fullpage {
+      padding-top: 0;
+    }
+  }
+
+  .pg-title {
+    display: none;
+  }
+
+  .gform_wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .gform_footer {
+      &:before {
+        content: "* All Fields Are Mandatory";
+        display: none;
+        padding-top: 10px;
+        color: $white;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+    }
+
+    input,
+    select,
+    textarea,
+    input[type="submit"].gform_button {
+      border-radius: 4px !important;
+    }
+
+    li {
+      position: relative;
+      margin-bottom: 12px !important;
+      &:nth-child(3n+2) {
+        clear: none;
+      }
+
+      &:nth-child(3n+4) {
+        //clear: left;
+      }
+
+      &.one-third {
+        width: 50% !important;
+        @media all and (min-width: 640px) {
+          width: calc(14% + 5px) !important;
+          margin-right: 10px !important;
+          padding-right: 0 !important;
+        }
+
+        @media all and (min-width: 830px) {
+          width: calc(14% + 11px) !important;
+        }
+      }
+
+      textarea {
+        max-height: 80px;
+      }
+
+      select {
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        padding: 8px 12px 8px 5px;
+        font-size: 11px;
+        line-height: 1;
+        color: $black;
+      }
+
+      .validation_message {
+        margin-top: 2px;
+        line-height: 1;
+
+        @media all and (max-width: 640px) {
+          font-size: 9px !important;
+        }
+      }
+
+      .gfield_description {
+        position: absolute;
+        top: 101%;
+        left: 10px;
+        font-size: 10px;
+        color: $white;
+
+        @media all and (min-width: 640px) {
+          font-size: 12px;
+        }
+
+        + .validation_message {
+          width: 100%;
+          padding: 0 25px;
+          line-height: 1;
+          text-align: right;
+        }
+      }
+
+    }
+    .validation_message {
+      margin-top: 0 !important;
+    }
+  }
+
+  .gform_wrapper {
+    li {
+      &.one-half {
+        width: 50% !important;
+      }
+      &.two-third {
+        width: 66.5% !important;
+
+        .gf_name_has_2 {
+          .name_first,
+          .name_last {
+            width: 49%;
+            float: left;
+          }
+          .name_last {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
