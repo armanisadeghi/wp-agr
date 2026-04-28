@@ -5,7 +5,7 @@
  * @package micropackage/requirements
  *
  * @license GPL-3.0-or-later
- * Modified by bracketspace on 05-September-2025 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by bracketspace on 11-March-2026 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace BracketSpace\Notification\Dependencies\Micropackage\Requirements;

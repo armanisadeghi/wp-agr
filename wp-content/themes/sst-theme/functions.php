@@ -378,7 +378,9 @@ function mok_enqueue_files() {
 
 
 
-	gravity_form_enqueue_scripts( 11, true );
+	if ( function_exists( 'gravity_form_enqueue_scripts' ) ) {
+		gravity_form_enqueue_scripts( 11, true );
+	}
 
 }
 

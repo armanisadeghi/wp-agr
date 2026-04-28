@@ -23,12 +23,16 @@ while ( have_posts() ) :
 	$asseencontent         = get_post_meta( $post_id, '_qwl_seen_content', 1 );
 	$notableheading        = get_post_meta( $post_id, '_qwl_notable_heading', 1 );
 	$notablecontent        = get_post_meta( $post_id, '_qwl_notable_content', 1 );
+	$render_attachment     = static function( $attachment_id, $size = 'full' ) {
+		$attachment_id = (int) $attachment_id;
+		return $attachment_id > 0 ? wp_get_attachment_image( $attachment_id, $size ) : '';
+	};
 	?>
-	<?php if ( is_array( $banners ) && $banners[0]['_qwl_banner_img_id'] != '' ) : ?>
+	<?php if ( is_array( $banners ) && ! empty( $banners[0] ) && ! empty( $banners[0]['_qwl_banner_img_id'] ) ) : ?>
 		<div id="billboard">
 			<?php if ( '' != $mobile_banner_id && 0 != $mobile_banner_id ) : ?>
 				<div class="mobile-only">
-					<?php echo wp_get_attachment_image( $mobile_banner_id, 'full' ); ?>
+					<?php echo $render_attachment( $mobile_banner_id, 'full' ); ?>
 					<div class="overlay">
 						<?php echo apply_filters( 'the_content', $mobile_banner_content ); ?>
 					</div><!--end of .overlay-->
@@ -40,7 +44,7 @@ while ( have_posts() ) :
 					<?php if ( array_key_exists( '_qwl_banner_img_id', $banner ) ) : ?>
 						<div>
 							<div class="image-container">
-								<?php echo wp_get_attachment_image( $banner['_qwl_banner_img_id'], 'full' ); ?>
+								<?php echo $render_attachment( $banner['_qwl_banner_img_id'], 'full' ); ?>
 							</div>
 							<?php
 							if ( array_key_exists( '_qwl_banner_heading', $banner ) && $banner['_qwl_banner_heading'] != ''
@@ -78,7 +82,7 @@ while ( have_posts() ) :
 					<div class="holder">
 						<?php if ( '' != $guide_img ) : ?>
 							<div class="image-container">
-								<?php echo wp_get_attachment_image( $guide_img_id, 'full' ); ?>
+								<?php echo $render_attachment( $guide_img_id, 'full' ); ?>
 							</div>
 						<?php endif; ?>
 						<?php if ( '' != $guide_content ) : ?>
@@ -155,7 +159,7 @@ while ( have_posts() ) :
 									$img_id = get_post_meta( $post_id, '_qwl_four_columns1_column' . $i . '_img_id', 1 );
 									?>
 									<div class="icon-holder icon-target">
-										<?php echo wp_get_attachment_image( $img_id, 'full' ); ?>
+										<?php echo $render_attachment( $img_id, 'full' ); ?>
 									</div>
 									<?php
 								} elseif ( '' != get_post_meta(
@@ -235,7 +239,7 @@ endfor;
 				<div class="holder">
 					<?php if ( array_key_exists( '_ttm_section_img', $section ) && 'imagebg' != $section['_ttm_section_layout'] && '' != $section['_ttm_section_img'] ) : ?>
 						<div class="img-container image-container">
-							<?php echo wp_get_attachment_image( $section['_ttm_section_img_id'], 'full' ); ?>
+							<?php echo $render_attachment( $section['_ttm_section_img_id'], 'full' ); ?>
 						</div>
 					<?php endif; ?>
 
@@ -272,7 +276,7 @@ endfor;
 								$img_id = get_post_meta( $post_id, '_qwl_four_columns2_column' . $i . '_img_id', 1 );
 								?>
 								<div class="icon-holder icon-target">
-									<?php echo wp_get_attachment_image( $img_id, 'full' ); ?>
+									<?php echo $render_attachment( $img_id, 'full' ); ?>
 								</div>
 								<?php
 							} elseif ( '' != get_post_meta(

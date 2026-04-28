@@ -189,7 +189,7 @@ class WPCode_Library {
 	public function load_data() {
 		$this->data = $this->get_from_cache( $this->cache_key );
 
-		if ( false === $this->data ) {
+		if ( empty( $this->data ) || ! is_array( $this->data ) ) {
 			$this->data = $this->get_from_server();
 		}
 
@@ -567,7 +567,7 @@ class WPCode_Library {
 
 		$this->snippets_by_username[ $username ] = $this->get_from_cache( 'profile_' . $username );
 
-		if ( false === $this->snippets_by_username[ $username ] ) {
+		if ( empty( $this->snippets_by_username[ $username ] ) || ! is_array( $this->snippets_by_username[ $username ] ) ) {
 			$this->snippets_by_username[ $username ] = $this->get_from_server_by_username( $username );
 		}
 
@@ -829,6 +829,53 @@ class WPCode_Library {
 			'success' => true,
 			'version' => ! empty( $library_snippet['version'] ) ? $library_snippet['version'] : '',
 		);
+	}
+
+	/**
+	 * Search snippets in the library by keyword.
+	 *
+	 * @param string $keyword The keyword to search for.
+	 *
+	 * @return array Array of matching snippets.
+	 */
+	public function search_snippets( $keyword ) {
+		$data         = $this->get_data();
+		$all_snippets = isset( $data['snippets'] ) ? $data['snippets'] : array();
+		$results      = array();
+
+		if ( empty( $all_snippets ) || ! is_array( $all_snippets ) ) {
+			return $results;
+		}
+
+		foreach ( $all_snippets as $snippet ) {
+			$found = false;
+
+			// Search in title.
+			if ( isset( $snippet['title'] ) && stripos( $snippet['title'], $keyword ) !== false ) {
+				$found = true;
+			}
+
+			// Search in description/note.
+			if ( ! $found && isset( $snippet['note'] ) && stripos( $snippet['note'], $keyword ) !== false ) {
+				$found = true;
+			}
+
+			// Search in tags.
+			if ( ! $found && isset( $snippet['tags'] ) && is_array( $snippet['tags'] ) ) {
+				foreach ( $snippet['tags'] as $tag ) {
+					if ( stripos( $tag, $keyword ) !== false ) {
+						$found = true;
+						break;
+					}
+				}
+			}
+
+			if ( $found ) {
+				$results[] = $snippet;
+			}
+		}
+
+		return $results;
 	}
 
 	/**

@@ -284,6 +284,70 @@ function ref_url($value)
 
 add_filter('gform_allowable_tags', '__return_true');
 
+/**
+ * Prevent PHP 8 warnings when attachment lookups return false.
+ *
+ * Some legacy theme data stores missing/invalid attachment IDs. WordPress core
+ * then expects an image array and emits "Trying to access array offset on false"
+ * warnings inside media.php. Normalize false to a tiny safe fallback payload.
+ */
+add_filter('wp_get_attachment_image_src', 'agr_normalize_attachment_image_src', 10, 4);
+function agr_normalize_attachment_image_src($image, $attachment_id, $size, $icon)
+{
+    if ($image === false) {
+        return ['', 1, 1, false];
+    }
+
+    return $image;
+}
+
+/**
+ * Guard malformed image size arrays (e.g. [300] instead of [300, 200]).
+ * This prevents core media.php warnings on PHP 8+.
+ */
+add_filter('image_downsize', 'agr_guard_image_downsize_args', 1, 3);
+function agr_guard_image_downsize_args($downsize, $id, $size)
+{
+    if (is_array($size) && (!isset($size[0]) || !isset($size[1]))) {
+        $url = wp_get_attachment_url($id);
+        if (!$url) {
+            return ['', 1, 1, false];
+        }
+        return [$url, 1, 1, false];
+    }
+
+    return $downsize;
+}
+
+/**
+ * Sanitize broken attachment metadata loaded from DB.
+ *
+ * Some legacy records contain non-array or incomplete entries in metadata['sizes'].
+ * WordPress core expects each size item to include width/height and can emit
+ * "Trying to access array offset on false" warnings in media.php when data is bad.
+ */
+add_filter('wp_get_attachment_metadata', 'agr_sanitize_attachment_metadata', 1, 2);
+function agr_sanitize_attachment_metadata($data, $attachment_id)
+{
+    if (!is_array($data) || !isset($data['sizes']) || !is_array($data['sizes'])) {
+        return $data;
+    }
+
+    foreach ($data['sizes'] as $size_name => $size_data) {
+        if (
+            !is_array($size_data) ||
+            !isset($size_data['width']) ||
+            !isset($size_data['height']) ||
+            !is_numeric($size_data['width']) ||
+            !is_numeric($size_data['height'])
+        ) {
+            unset($data['sizes'][$size_name]);
+        }
+    }
+
+    return $data;
+}
+
 add_filter('gform_upload_path', 'change_upload_path', 10, 2);
 function change_upload_path($path_info, $form_id)
 {
@@ -299,8 +363,7 @@ add_filter('rank_math/sitemap/entry', function ($url) {
     }return $url;
 });
 
-update_option('siteurl', 'https://allgreenrecycling.com');
-update_option('home', 'https://allgreenrecycling.com');
+// Keep URLs environment-specific. Do not hard-force production URL in theme code.
 
 add_filter('rank_math/snippet/rich_snippet_videoobject_entity', function ($entity) {
     if (empty($entity['uploadDate'])) {

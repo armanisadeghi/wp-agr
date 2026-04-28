@@ -42,8 +42,11 @@ endif; ?>
 function show_step(){
 	$url = $_SERVER['REQUEST_URI'];
 	$parts = parse_url($url);
-	parse_str($parts['query'], $query);
-	$step = $query['step'];
+	$query = array();
+	if ( isset( $parts['query'] ) ) {
+		parse_str( $parts['query'], $query );
+	}
+	$step = isset( $query['step'] ) ? $query['step'] : null;
 		if($step == 2)
 		{
 			//echo "<style>#gform_page_11_1{display:none;}#gform_page_11_2{display:block !important;}</style>";

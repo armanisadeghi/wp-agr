@@ -25,7 +25,19 @@
 
             public $parent = null;
 
-            public function __construct() {
+            public function __construct( $parent = null ) {
+                if ( null !== $parent ) {
+                    $this->parent = $parent;
+                }
+
+                if ( ! is_object( $this->parent ) ) {
+                    return;
+                }
+
+                if ( ! isset( $this->parent->admin_notices ) || ! is_array( $this->parent->admin_notices ) ) {
+                    $this->parent->admin_notices = array();
+                }
+
                 $this->parent->admin_notices[] = array(
                     'type'    => 'error',
                     'msg'     => '<strong>' . __( 'File Permission Issues', 'redux-framework' ) . '</strong><br/>' . sprintf( __( 'We were unable to modify required files. Please check your permissions, or modify your wp-config.php file to contain your FTP login credentials as <a href="%s" target="_blank">outlined here</a>.', 'redux-framework' ), 'https://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants' ),
@@ -44,7 +56,7 @@
 
                 // If the single instance hasn't been set, set it now.
                 if ( null == self::$instance ) {
-                    self::$instance = new self;
+                    self::$instance = new self( $parent );
                 }
 
                 if ( $parent !== null ) {
