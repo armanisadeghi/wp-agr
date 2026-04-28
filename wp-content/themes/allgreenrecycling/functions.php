@@ -1,5 +1,6 @@
 <?php
 require 'helpers/helpers.php';
+require_once get_stylesheet_directory() . '/helpers/lgx-carousel-safe.php';
 add_filter('sst_enqueue_parent_stylesheet', '__return_true');
 
 if (!session_id()) {
@@ -273,7 +274,7 @@ function landing_page($value)
 add_filter('gform_field_value_keyword', 'keyword');
 function keyword($value)
 {
-    return $_SESSION["keyword"];
+    return isset($_SESSION["keyword"]) ? $_SESSION["keyword"] : '';
 }
 
 add_filter('gform_field_value_ref_url', 'ref_url');

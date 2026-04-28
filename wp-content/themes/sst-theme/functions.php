@@ -651,3 +651,10 @@ add_filter('gform_file_accepted_mime_types', function($types, $file, $form_id, $
 add_filter( 'get_comment_author_link', 'wpse218025_remove_comment_author_link', 10, 3 );
 add_filter( 'comment_notification_recipients', '__return_empty_array', PHP_INT_MAX );
 add_filter( 'comment_moderation_recipients',   '__return_empty_array', PHP_INT_MAX );
+
+if ( ! function_exists( 'wpse218025_remove_comment_author_link' ) ) {
+	function wpse218025_remove_comment_author_link( $author_link, $author, $comment_id ) {
+		return esc_html( $author );
+	}
+}
+

@@ -15,6 +15,7 @@ use Carbon_Fields\Exception\Incorrect_Syntax_Exception;
  * Base container class.
  * Defines the key container methods and their default implementations.
  */
+#[\AllowDynamicProperties]
 abstract class Container implements Datastore_Holder_Interface {
 	/**
 	 * Where to put a particular tab -- at the head or the tail. Tail by default
