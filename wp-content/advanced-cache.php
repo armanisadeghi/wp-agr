@@ -9,15 +9,15 @@ if (strpos($_SERVER["REQUEST_URI"], "nitroHealthcheck") !== false) {
     exit;
 }
 
-$nitropack_functions_file = '/home/steve/public_html/wp-content/plugins/nitropack/functions.php';
-$nitropack_abspath = '/home/steve/public_html/';
+$nitropack_functions_file = 'D:\XAMPP\htdocs\titaniumsuccess_clients\wp-agr\wp-content\plugins\nitropack\functions.php';
+$nitropack_abspath = 'D:\XAMPP\htdocs\titaniumsuccess_clients\wp-agr/';
 
 // We need the ABSPATH check in order to verify that the functions file which we are about to load belongs to the expected WP installation.
 // Otherwise issues may occur when a site is being duplicated in a subdir on the same server.
 if (file_exists($nitropack_functions_file) && ABSPATH == $nitropack_abspath) {
     define( 'NITROPACK_ADVANCED_CACHE', true);
     define( 'NITROPACK_ADVANCED_CACHE_VERSION', '1.18.7');
-    define( 'NITROPACK_LOGGED_IN_COOKIE', 'wordpress_logged_in_d8ae92de267707f9191cdaef4e6a4eb1' );
+    define( 'NITROPACK_LOGGED_IN_COOKIE', 'wordpress_logged_in_8f4a8a6f105bd711bd06ca8a6643b2e2' );
     require_once $nitropack_functions_file;
 }
 
