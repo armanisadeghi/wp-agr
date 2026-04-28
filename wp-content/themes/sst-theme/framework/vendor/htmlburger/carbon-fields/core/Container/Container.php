@@ -71,6 +71,20 @@ abstract class Container implements Datastore_Holder_Interface {
 	public $title = '';
 
 	/**
+	 * Internal container id.
+	 *
+	 * @var string
+	 */
+	protected $id = '';
+
+	/**
+	 * Internal container type.
+	 *
+	 * @var string
+	 */
+	protected $type = '';
+
+	/**
 	 * List of notification messages to be displayed on the front-end
 	 *
 	 * @var array
