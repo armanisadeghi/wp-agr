@@ -363,7 +363,7 @@ class WPCode_Admin_Page_Snippet_Manager extends WPCode_Admin_Page {
 	 * @return void
 	 */
 	public function show_snippet_library() {
-		$library_data     = wpcode()->library->get_data();
+		$library_data     = wp_parse_args( wpcode()->library->get_data(), wpcode()->library->get_empty_array() );
 		$categories       = $library_data['categories'];
 		$snippets         = $library_data['snippets'];
 		$default_category = isset( $categories[0]['slug'] ) ? $categories[0]['slug'] : '';
@@ -914,12 +914,7 @@ class WPCode_Admin_Page_Snippet_Manager extends WPCode_Admin_Page {
 	 */
 	public function get_selected_auto_insert_location() {
 		$current_location = $this->get_current_snippet_location();
-
-		if ( empty( $current_location ) ) {
-			$current_location = 'site_wide_header';
-		}
-
-		$location_extra = isset( $this->snippet ) ? $this->snippet->get_location_extra() : '';
+		$location_extra   = isset( $this->snippet ) ? $this->snippet->get_location_extra() : '';
 
 		// Show a faux select box with the current location.
 		$location_label = wpcode()->auto_insert->get_location_label( $current_location );
@@ -964,7 +959,15 @@ class WPCode_Admin_Page_Snippet_Manager extends WPCode_Admin_Page {
 			return $current_location;
 		}
 
-		return $this->snippet->get_location();
+		$location = $this->snippet->get_location();
+
+		// If location is empty (e.g. cleared when switching to shortcode mode), fall back to default
+		// so the radio button stays in sync with the display label.
+		if ( empty( $location ) ) {
+			return $current_location;
+		}
+
+		return $location;
 	}
 
 	/**

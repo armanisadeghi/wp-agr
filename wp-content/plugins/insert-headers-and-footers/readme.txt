@@ -4,7 +4,7 @@ Tags: code, css, php, header, code snippets
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 2.3.2.1
+Stable tag: 2.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -231,6 +231,17 @@ WPCode comes with a ready-made code snippets library that allows you to replace 
 ... and basically any plugin that adds a functionality which can be added via custom code snippets.
 
 == Changelog ==
+
+= 2.3.5 =
+* Fix: Switching a snippet from shortcode back to auto-insert mode now correctly restores the selected location.
+* Fix: Changes made in the Text tab of the visual editor for text snippets are now saved correctly.
+* Fix: Resolved a fatal error that could occur when the snippet library cache returns invalid data.
+
+= 2.3.4 =
+* New: Integration with the WordPress Abilities API (requires WordPress 6.9+).
+
+= 2.3.3 =
+* Tweak: Improved PHP 8.5 compatibility.
 
 = 2.3.2.1 =
 * Fix: Fixed an issue where users who can't edit snippets saw an error message.
