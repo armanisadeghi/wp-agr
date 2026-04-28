@@ -178,6 +178,10 @@
             public $reload_fields = array();
             public $omit_share_icons = false;
             public $omit_admin_items = false;
+            public $old_opt_name = null;
+            public $transients = array();
+            public $transients_check = array();
+            public $apiHasRun = 0;
 
             /**
              * Class Constructor. Defines the args for the theme options class

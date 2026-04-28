@@ -75,7 +75,7 @@ class Inflector
 	 *
 	 * @param Inflections $inflections
 	 */
-	protected function __construct(Inflections $inflections = null)
+	protected function __construct(?Inflections $inflections = null)
 	{
 		$this->inflections = $inflections ?: new Inflections;
 	}

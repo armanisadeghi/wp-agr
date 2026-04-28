@@ -273,7 +273,7 @@ function landing_page($value)
 add_filter('gform_field_value_keyword', 'keyword');
 function keyword($value)
 {
-    return $_SESSION["keyword"];
+    return isset($_SESSION["keyword"]) ? $_SESSION["keyword"] : '';
 }
 
 add_filter('gform_field_value_ref_url', 'ref_url');
