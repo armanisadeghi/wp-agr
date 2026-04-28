@@ -17,6 +17,7 @@ class Shortcode_Button {
 	 */
 	const VERSION = '1.0.0';
 
+	protected $button_slug   = '';
 	protected $button_data = array();
 	protected $args        = array();
 	protected $index       = 0;

@@ -657,3 +657,4 @@ if ( ! function_exists( 'wpse218025_remove_comment_author_link' ) ) {
 		return esc_html( $author );
 	}
 }
+

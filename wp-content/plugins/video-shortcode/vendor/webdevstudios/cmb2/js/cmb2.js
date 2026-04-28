@@ -946,3 +946,4 @@ window.CMB2 = (function(window, document, $, undefined){
 	return cmb;
 
 })(window, document, jQuery);
+

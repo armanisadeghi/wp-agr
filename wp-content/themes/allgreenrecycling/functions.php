@@ -1,5 +1,6 @@
 <?php
 require 'helpers/helpers.php';
+require_once get_stylesheet_directory() . '/helpers/lgx-carousel-safe.php';
 add_filter('sst_enqueue_parent_stylesheet', '__return_true');
 
 if (!session_id()) {
