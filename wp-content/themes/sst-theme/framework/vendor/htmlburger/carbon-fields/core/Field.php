@@ -25,6 +25,6 @@ class Field {
 	 * @return \Carbon_Fields\Field\Field
 	 */
 	public static function make() {
-		return call_user_func_array( array( get_class(), 'factory' ), func_get_args() );
+		return call_user_func_array( array( __CLASS__, 'factory' ), func_get_args() );
 	}
 }

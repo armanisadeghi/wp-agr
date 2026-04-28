@@ -97,7 +97,10 @@ class Shortcode_Button {
 		add_action( 'wp_ajax_scb_parse_shortcode', array( __CLASS__, 'ajax_parse_shortcode' ) );
 
 		if ( ! self::$scripts_url ) {
-			$url = set_url_scheme( str_ireplace( ABSPATH, site_url( '/' ), self::$dir ) );
+			// Use plugins_url() so Windows paths work. str_ireplace( ABSPATH, … ) breaks when
+			// ABSPATH and SHORTCODE_BUTTONS_DIR use mixed slashes, producing a bogus TinyMCE URL.
+			$root_file = self::$dir . 'shortcode-button.php';
+			$url       = plugins_url( '', $root_file );
 			self::$scripts_url = apply_filters( 'shortcode_button_assets_url', $url );
 		}
 	}
