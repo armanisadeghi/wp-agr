@@ -8,7 +8,7 @@
  * the issues found on exit.
  *
  * @license GPL-2.0-or-later
- * Modified by bracketspace on 05-September-2025 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by bracketspace on 11-March-2026 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 require_once( __DIR__ . '/data/AttributeInterface.php' );

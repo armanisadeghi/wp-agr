@@ -386,10 +386,12 @@ abstract class BaseCarrier implements Interfaces\Sendable
 			return;
 		}
 
-		$this->recipientsResolvedData = $this->resolveValue(
+		$resolvedValue = $this->resolveValue(
 			$recipientsField->getValue(),
 			$trigger
 		);
+
+		$this->recipientsResolvedData = is_array($resolvedValue) ? $resolvedValue : [];
 	}
 
 	/**
@@ -435,11 +437,11 @@ abstract class BaseCarrier implements Interfaces\Sendable
 		);
 
 		$resolved = $stripShortcodes
-			? preg_replace('/\[[^\]]*\]/', '', $resolved)
+			? (preg_replace('/\[[^\]]*\]/', '', $resolved) ?? $resolved)
 			: do_shortcode($resolved);
 
 		// Unescape escaped {.
-		$resolved = str_replace('!{', '{', (string)$resolved);
+		$resolved = str_replace('!{', '{', $resolved);
 
 		return apply_filters('notification/carrier/field/value/resolved', $resolved, null);
 	}
@@ -471,6 +473,20 @@ abstract class BaseCarrier implements Interfaces\Sendable
 	}
 
 	/**
+	 * Gets the return field name that this carrier requires from recipients.
+	 *
+	 * Override in subclasses to enforce a specific return field (e.g. 'user_email' for Email).
+	 * When null, the recipient's own return field is used.
+	 *
+	 * @return string|null
+	 * @since  9.0.10
+	 */
+	protected function getRecipientReturnField(): ?string
+	{
+		return null;
+	}
+
+	/**
 	 * Parses the recipients to a flat array.
 	 *
 	 * It needs recipients_resolved_data property so the
@@ -485,18 +501,41 @@ abstract class BaseCarrier implements Interfaces\Sendable
 			return [];
 		}
 
+		$carrierReturnField = $this->getRecipientReturnField();
 		$parsedRecipients = [];
 
 		foreach ($this->recipientsResolvedData as $recipientData) {
-			$recipient = RecipientStore::get($this->getSlug(), $recipientData['type']);
+			if (!is_array($recipientData) || !isset($recipientData['type'], $recipientData['recipient'])) {
+				continue;
+			}
+
+			$type = is_scalar($recipientData['type']) ? (string)$recipientData['type'] : '';
+			$recipientValue = is_scalar($recipientData['recipient']) ? (string)$recipientData['recipient'] : '';
+
+			$recipient = RecipientStore::get($this->getSlug(), $type);
 
 			if (! $recipient instanceof Interfaces\Receivable) {
 				continue;
 			}
 
+			// Clone to avoid mutating shared store instances.
+			$recipient = clone $recipient;
+
+			if ($carrierReturnField !== null && method_exists($recipient, 'setReturnField')) {
+				$recipient->setReturnField($carrierReturnField);
+			}
+
+			/** @var Interfaces\Receivable $recipient */
+			$recipient = apply_filters(
+				'notification/recipient/pre_parse_value',
+				$recipient,
+				$this->getSlug(),
+				$type
+			);
+
 			$parsedRecipients = array_merge(
 				$parsedRecipients,
-				(array)$recipient->parseValue($recipientData['recipient'])
+				(array)$recipient->parseValue($recipientValue)
 			);
 		}
 
@@ -596,7 +635,10 @@ abstract class BaseCarrier implements Interfaces\Sendable
 	 */
 	public function activate()
 	{
-		$this->getFormField('activated')->setValue(true);
+		$field = $this->getFormField('activated');
+		if ($field !== null) {
+			$field->setValue(true);
+		}
 		return $this;
 	}
 
@@ -608,7 +650,10 @@ abstract class BaseCarrier implements Interfaces\Sendable
 	 */
 	public function deactivate()
 	{
-		$this->getFormField('activated')->setValue(false);
+		$field = $this->getFormField('activated');
+		if ($field !== null) {
+			$field->setValue(false);
+		}
 		return $this;
 	}
 
@@ -631,7 +676,10 @@ abstract class BaseCarrier implements Interfaces\Sendable
 	 */
 	public function enable()
 	{
-		$this->getFormField('enabled')->setValue(true);
+		$field = $this->getFormField('enabled');
+		if ($field !== null) {
+			$field->setValue(true);
+		}
 		return $this;
 	}
 
@@ -643,7 +691,10 @@ abstract class BaseCarrier implements Interfaces\Sendable
 	 */
 	public function disable()
 	{
-		$this->getFormField('enabled')->setValue(false);
+		$field = $this->getFormField('enabled');
+		if ($field !== null) {
+			$field->setValue(false);
+		}
 		return $this;
 	}
 
