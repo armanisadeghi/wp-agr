@@ -1269,7 +1269,7 @@ $floatingSidebarContent .='<div id="csbwfs_contact"><script>jQuery("#csbwfs_ligh
 		jQuery("#csbwfs_lightbox").hide().fadeOut(1000);});</script>
        <div class="heading">'.$formtitle.'</div>'.$formsubheading.' 
       <div class="csbwfsmsg"></div>
-      <form action="'.home_url('/').'" method="post" id="csbwfs_form">
+      <form action="'.home_url('/').'" method="post" id="csbwfs_form">'.wp_nonce_field('csbwfs_contact_form', 'csbwfs_contact_nonce', true, false).'
         <div class="fields"><label>Name<span class="req">*</span>: </label><input name="csbwfs_name" id="csbwfs_name" type="text"  class="csbwfs-req-fields" /></div>
        <div class="fields"><label>Email<span class="req">*</span>: </label><input name="csbwfs_email" id="csbwfs_email" type="text" class="csbwfs-req-fields csbwfs-req-email"/></div>
         <div class="fields"><label>Message: </label><textarea name="csbwfs_message" id="csbwfs_message" rows="3" cols="46"></textarea></div>
@@ -1368,13 +1368,16 @@ $floatingSidebarContent .='</div></div>';
 }
 
 /** CSBWFS Contact Form */
-if(isset($_POST['cswbfs_submit_form']) && $_POST['cswbfs_hdn_cptha']=='')
+if(isset($_POST['cswbfs_submit_form']) && isset($_POST['cswbfs_hdn_cptha']) && $_POST['cswbfs_hdn_cptha']=='')
 {
+if ( ! isset( $_POST['csbwfs_contact_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['csbwfs_contact_nonce'] ) ), 'csbwfs_contact_form' ) ) {
+	echo esc_html__( 'Invalid form submission.', 'csbwfs-pro' ); exit;
+}
 
-$cptha1=strip_tags($_POST['cswbfs_hdn_cpthaval1']);
-$cptha2=strip_tags($_POST['cswbfs_hdn_cpthaval2']);
-$cptha3=strip_tags($_POST['cswbfs_hdn_cpthaaction']);
-$cptha4=strip_tags($_POST['csbwfs_code']);
+$cptha1 = isset( $_POST['cswbfs_hdn_cpthaval1'] ) ? absint( $_POST['cswbfs_hdn_cpthaval1'] ) : 0;
+$cptha2 = isset( $_POST['cswbfs_hdn_cpthaval2'] ) ? absint( $_POST['cswbfs_hdn_cpthaval2'] ) : 0;
+$cptha3 = isset( $_POST['cswbfs_hdn_cpthaaction'] ) ? sanitize_text_field( wp_unslash( $_POST['cswbfs_hdn_cpthaaction'] ) ) : '';
+$cptha4 = isset( $_POST['csbwfs_code'] ) ? absint( $_POST['csbwfs_code'] ) : 0;
 if($cptha3=='x'){ 
 $finalCechking=($cptha1*$cptha2);
 }else {
@@ -1398,10 +1401,14 @@ $csbwfsUserSubject="Thank you for contacting us";
 
 $csbwfs_mail_cc='';
 
-$csbwfsMail = strip_tags($_POST['csbwfs_email']);
-$csbwfsMsg = strip_tags($_POST['csbwfs_message']);
-$csbwfsName = strip_tags($_POST['csbwfs_name']);
-$csbwfsReqUrl = $_POST['csbwfs_request_url'];
+$csbwfsMail = isset( $_POST['csbwfs_email'] ) ? sanitize_email( wp_unslash( $_POST['csbwfs_email'] ) ) : '';
+$csbwfsMsg = isset( $_POST['csbwfs_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['csbwfs_message'] ) ) : '';
+$csbwfsName = isset( $_POST['csbwfs_name'] ) ? sanitize_text_field( wp_unslash( $_POST['csbwfs_name'] ) ) : '';
+$csbwfsReqUrl = isset( $_POST['csbwfs_request_url'] ) ? esc_url_raw( wp_unslash( $_POST['csbwfs_request_url'] ) ) : '';
+
+if ( empty( $csbwfsMail ) || ! is_email( $csbwfsMail ) ) {
+	echo esc_html__( 'Please provide a valid email address.', 'csbwfs-pro' ); exit;
+}
 
 $csbwfs_mail_to= $pluginOptionsVal['csbwfs_mail_to'];
 $csbwfs_mail_from= $pluginOptionsVal['csbwfs_mail_from'];
@@ -1409,13 +1416,13 @@ $csbwfs_mail_subject= $pluginOptionsVal['csbwfs_mail_subject'];
 $csbwfs_mail_welcome_msg= $pluginOptionsVal['csbwfs_mail_welcome_msg'];
 
 if(isset($csbwfs_mail_to) && $csbwfs_mail_to!='')
-$cswbfsSiteEmail=$csbwfs_mail_to;	
+$cswbfsSiteEmail = sanitize_email( $csbwfs_mail_to );	
 
 if(isset($csbwfs_mail_subject) && $csbwfs_mail_subject!='')
 $csbwfsSubject=strip_tags($csbwfs_mail_subject);
 
 if(isset($csbwfs_mail_from) && $csbwfs_mail_from!='')
-$cswbfsSiteEmail=strip_tags($csbwfs_mail_from);
+$cswbfsSiteEmail = sanitize_email( $csbwfs_mail_from );
 
 if(isset($csbwfs_mail_welcome_msg) && $csbwfs_mail_welcome_msg!='')
 $csbwfsUserMsg=strip_tags($csbwfs_mail_welcome_msg);
@@ -1425,17 +1432,19 @@ $csbwfs_msg_body .= "Dear Admin,\n Please find new request details given below".
 $csbwfs_msg_body .= "Name: ".$csbwfsName."\r\n";
 $csbwfs_msg_body .= "Email: ".$csbwfsMail."\r\n";
 $csbwfs_msg_body .= "Message: ".$csbwfsMsg."\r\n";
-$csbwfs_msg_body .= "Contact Request URL: ".$_SERVER['REQUEST_URI']."\r\n\r\n";
+$csbwfs_msg_body .= "Contact Request URL: ".esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) )."\r\n\r\n";
 
 $csbwfs_msg_body .= "Thanks \r\n".$cswbfsSiteTitle."\r\n--\r\n\r\n
-This e-mail was sent from a contact form on ".$cswbfsSiteTitle." (".$cswbfsSiteUrl.")\n IP Address: ".$_SERVER['REMOTE_ADDR'];
+This e-mail was sent from a contact form on ".$cswbfsSiteTitle." (".$cswbfsSiteUrl.")\n IP Address: ".sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) );
 
 $csbwfsSubject="New Contact Request on ".$cswbfsSiteTitle." (Social Flating Sidebar)";
 
 $csbwfsheaders = "MIME-Version: 1.0" . "\r\n";
 $csbwfsheaders .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-$csbwfsheaders .= 'From: '.$csbwfsName.' <'.$csbwfsMail.'>';
+$safe_from_name = str_replace( array( "\r", "\n" ), '', $csbwfsName );
+$safe_from_mail = sanitize_email( str_replace( array( "\r", "\n" ), '', $csbwfsMail ) );
+$csbwfsheaders .= 'From: '.$safe_from_name.' <'.$safe_from_mail.'>';
 
 if(isset($csbwfs_mail_cc) && $csbwfs_mail_cc!='')
 $csbwfs_mail_cc=$csbwfs_mail_cc;
@@ -2204,6 +2213,9 @@ function csbwfs_save_meta_box_data( $post_id ) {
 function csbwfs_add_og_tag_header()
 {
 global $meta_box, $post;
+if ( ! is_singular() || empty( $post ) || empty( $post->ID ) ) {
+	return;
+}
 echo '<!-- START CSBWFS OG Tags -->
 <meta property="og:type" content="website">';
 $canonicalUrl=get_permalink($post->ID);
@@ -2212,7 +2224,7 @@ $lang=strtolower(get_bloginfo("language"));
 //if($canonicalcustomUrl!=''){$canonicalUrl=$canonicalcustomUrl;}
 if($canonicalUrl!=''){
 echo '
-<link rel="alternate" href="'.$canonicalUrl.'" hreflang="'.$lang.'" />';
+<link rel="alternate" href="'.esc_url( $canonicalUrl ).'" hreflang="'.esc_attr( $lang ).'" />';
 //echo '<link rel="canonical" href="'.$canonicalUrl.'" />';
 }
 $ogtile=get_post_meta($post->ID,"csbwfs_og_title",true);
@@ -2221,19 +2233,19 @@ if($ogtile=='' && $csbwfs_dft_og_title!=''){$ogtile=$csbwfs_dft_og_title;}
 elseif($ogtile=='' && $csbwfs_dft_og_title==''){$ogtile=wp_title('',FALSE,'right');}else{}
 if($ogtile!=''){
 echo '
-<meta property="og:title" content="'.$ogtile.'">';}
+<meta property="og:title" content="'.esc_attr( $ogtile ).'">';}
 $ogdescription=get_post_meta($post->ID,"csbwfs_og_description",true);
 $csbwfs_dft_og_desc=get_option('csbwfs_dft_og_desc');
 if($ogdescription=='' && $csbwfs_dft_og_desc!=''){$ogdescription=$csbwfs_dft_og_desc;}
 if($ogdescription!=''){
 echo '
-<meta property="og:description" content="'.$ogdescription.'">';}
+<meta property="og:description" content="'.esc_attr( $ogdescription ).'">';}
 $ogimage=get_post_meta($post->ID,"csbwfs_og_image_path",true);
 $csbwfs_dft_og_img=get_option('csbwfs_dft_og_img');
 if($ogimage=='' && $csbwfs_dft_og_img!=''){$ogimage=$csbwfs_dft_og_img;}
 if($ogimage!=''){
 echo '
-<meta property="og:image" content="'.$ogimage.'">';}
+<meta property="og:image" content="'.esc_url( $ogimage ).'">';}
 echo '
 <!-- END CSBWFS OG Tags -->
 ';
